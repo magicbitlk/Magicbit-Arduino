@@ -21,7 +21,7 @@ Installation Instructions
 - Enter one of the release links above into Additional Board Manager URLs field. You can add multiple URLs, separating them with commas.
 - Open Boards Manager from Tools > Board menu and install magicbit platform (and don't forget to - - select Magicbit from Tools > Board menu after installation).
 
-.. image:: https://github.com/magicbitlk/Magicbit-Arduino/raw/master/Resources/My%20Video.gif
+.. image:: https://github.com/magicbitlk/Magicbit-Arduino/raw/master/Resources/ArduinoSetup.gif
 ***********
 Powering Up
 ***********
