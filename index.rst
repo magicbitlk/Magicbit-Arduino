@@ -25,7 +25,7 @@ Powering Up
 
 To check whether drivers are correctly installed open the Ardunio IDE and go the Tools menu. There should be a port (Eg:COM1) shown when plugging Magicbit to the computer as shown below. If not please follow Installation drivers section.
 
-.. image:: https://github.com/magicbitlk/Magicbit-Arduino/blob/master/Resources/Ardunio_port.png
+.. image:: https://github.com/magicbitlk/Magicbit-Arduino/raw/master/Resources/Ardunio_port.png
 
 
 ********************
@@ -67,7 +67,7 @@ Specifications
 *****************
 Features
 *****************
-.. image:: https://github.com/magicbitlk/Magicbit-Arduino/blob/master/Resources/Layout.png
+.. image:: https://github.com/magicbitlk/Magicbit-Arduino/raw/master/Resources/Layout.png
 
 ***************
 Pinmap
