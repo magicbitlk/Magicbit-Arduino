@@ -1,6 +1,9 @@
 ================
 Getting Started
 ================
+.. image:: https://github.com/magicbitlk/Magicbit-Arduino/raw/master/Resources/Arduino1.6.4_IDE_small.png
+
+
 The open-source Arduino Software (IDE) makes it easy to write code and upload it to the board. It runs on Windows, Mac OS X, and Linux. The environment is written in Java and based on Processing and other open-source software.
 `Learn more about Arduino <https://www.arduino.cc/en/main/software>`_
 
@@ -21,7 +24,7 @@ Installation Instructions
 ***********
 Powering Up
 ***********
- Magicbit can be powerup by either connecting USB cable or connecting battery. For programming USB cable must be connected to the computer. For the first time powering up Magicbit self test program will be running on the magicbit and you can see the features available and functional tests on Magicbit display.       
+     Magicbit can be powerup by either connecting USB cable or connecting battery. For programming USB cable must be connected to the computer. For the first time powering up Magicbit self test program will be running on the magicbit and you can see the features available and functional tests on Magicbit display.       
 
 To check whether drivers are correctly installed open the Ardunio IDE and go the Tools menu. There should be a port (Eg:COM1) shown when plugging Magicbit to the computer as shown below. If not please follow Installation drivers section.
 
@@ -55,14 +58,14 @@ Brain of the magicbit is ESP32, which is a series of low-cost, low-power system 
 **************
 Specifications
 **************
-- Processor - Xtensa dual-core
-- Speed- Up to 240Mhz
-- Flash Memory-4MB
-- Ram-520KB
-- Inputs-Pushbutton, LDR, Potentiometer
-- Outputs-LEDs, OLED Display, Buzzer
-- Other- Dual Motor Driver, Li-Ion Charger
-- Connectivity- USB, WiFi, Bluetooth
+- **Processor** - Xtensa dual-core
+- **Speed**- Up to 240Mhz
+- **Flash Memory**-4MB
+- **Ram**-520KB
+- **Inputs**-Pushbutton, LDR, Potentiometer
+- **Outputs**-LEDs, OLED Display, Buzzer
+- **Other**- Dual Motor Driver, Li-Ion Charger
+- **Connectivity**- USB, WiFi, Bluetooth
 
 *****************
 Features
