@@ -53,7 +53,7 @@ First Project
 *************
 Caution
 *************
-To use analorWrite, Tone and Servo funtions,
+To use analogWrite, Tone and Servo funtions,
 Include ESP32Servo **Sketch->Include Library->ESP32Servo or put **#include <ESP32Servo.h>** on top of arduino sketch.
 
 ========
