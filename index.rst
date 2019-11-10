@@ -50,6 +50,12 @@ First Project
 - Upload the code to the Magicbit 
 - If Green Led on backside of the Magicbit is blinking your have just begun the magic with Magicbit
 
+*************
+Caution
+*************
+To use analorWrite, Tone and Servo funtions,
+Include ESP32Servo **Sketch->Include Library->ESP32Servo or put **#include <ESP32Servo.h>** on top of arduino sketch.
+
 ========
 Hardware
 ========
