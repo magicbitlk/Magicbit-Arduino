@@ -89,7 +89,6 @@ Pinmap
 Accessories
 ***********
 
-
 *************************
 Example 1: Blinking an LED
 *************************
@@ -143,7 +142,9 @@ Activity
 ***********
  Write code for a knight rider pattern using on board leds of magicbit
 
+.. raw:: latex
 
+    \newpage
 
 *************************
 Example 2: Reading the state of a push button
@@ -215,7 +216,9 @@ Activity
  Write a code to toggle an LED in the button press. LED turns on when button pressed & released, LED turns off when button is pressed & released again. (Hint: Make use of variables to ‘remember’ the state of the button press). 
 
 
+.. raw:: latex
 
+    \newpage
 
 ************************************
 Example 3: Working with Analog Write
@@ -271,7 +274,9 @@ Activity
 ***********
  This example we have coded to increase the brightness, write a code to do the opposite of that, to fade the brightness of the led, & put both effects together to create a beautiful fade & light up effect.
 
+.. raw:: latex
 
+    \newpage
 
 ********************************
 Example 4: Using Serial Protocol
@@ -535,5 +540,3 @@ Explanation
 Activity
 ***********
  Make a program to display the ADC value of the potentiometer on the OLED display. 
-
-
