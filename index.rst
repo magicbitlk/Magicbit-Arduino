@@ -1,6 +1,126 @@
 ================
-Getting Started
+What is Magicbit
 ================
+**************
+Introduction
+**************
+
+This device is an Integrated development platform for learning and solution designing of electronics, robotics, Internet of Things and coding. The device can interact with a host of sensors such as light sensors, fire sensors, motion detectors etc. and output devices such as LEDs, switches, buzzers, speakers, motors etc.
+ The hardware can be programmed using industry standard integrated development environment (IDE) that runs on PCs, Tablets, Mobile devices, or web platforms. This device supports a large number of programming platforms such as C++, python, scratch, magicblocks, mblock and codda, Hence the learning curve to learn to operate and utilize this device is shorter. Ardunio & MicroPython are for users with prior programming experience. Magicbit provides extension for mBlock3 for kids without programming knowledge. Codda is a visual programming language which same time can experience the true coding. Magicblocks is a NodeRed based platform for IoT solution design for any user group. 
+ 
+This device also has the following special features:
+- In-built battery charger, WiFi & Bluetooth connectivity;
+- Integrated sensors and actuators to enable users to test and design projects without additional components;
+- An internal OLED display;
+- Plug & play feature to easily connect accessories;
+- An enclosure for productization of designs
+
+Brain of the magicbit is ESP32, which is a series of low-cost, low-power system on a chip microcontrollers with integrated Wi-Fi and dual-mode Bluetooth. Therefore any project or document available on internet which supports ESP32 is supported for Magicbit as well.
+
+**************
+Specifications
+**************
+- **Processor** - Xtensa dual-core
+- **Speed**- Up to 240Mhz
+- **Flash Memory**-4MB
+- **Ram**-520KB
+- **Inputs**-Pushbutton, LDR, Potentiometer
+- **Outputs**-LEDs, OLED Display, Buzzer
+- **Other**- Dual Motor Driver, Li-Ion Charger
+- **Connectivity**- USB, WiFi, Bluetooth
+
+*****************
+Features
+*****************
+.. image:: https://github.com/magicbitlk/Magicbit-Arduino/raw/master/Resources/Layout.png
+
+***************
+Pinmap
+***************
+
+.. image:: https://github.com/magicbitlk/arduino-esp32/raw/master/docs/pinout.png
+
+***********
+Accessories
+***********
+
+
+LED
+===
+
+There are four leds on backside of the magicbit with color red, yellow, green & blue. A LED(light-emitting diode) is a semiconductor light source that emits light when current flows through it. Blinking a LED is the hello world to the microcontroller programming world.
+
+
+BUTTON
+======
+There are two buttons on the front of the magicbit. The push-button is a component that connects two points in a circuit when you press it. The example turns on an LED when you press the button.
+
+
+
+LDR
+===
+There is a LDR on the front of the magicbit. LDR(Light Dependent Resistor) is a light-controlled variable resistor. The resistance of a photo-resistor decreases with increasing incident light intensity. You can measure light intensity using LDR as a analog output.
+
+
+POTENTIOMETER
+=============
+The potentiometer is a component with rotating contact that forms an adjustable voltage divider. A potentiometer is a simple knob that provides a variable resistance, which we can read into the magicbit board as an analog value.
+
+
+DISPLAY
+=======
+OLED (Organic Light Emitting Diodes) is a flat light emitting technology. OLED display has a film of organic compound that emits light in response to an electric current.You can display varoius graphics and text on the display.
+
+BUZZER
+======
+There is a buzzer on the front of the magicbit. Buzzer is an electronic device commonly used to produce sound.
+
+
+
+BATTERY
+=======
+There is a Battery connector on the front of the magicbit.Single cell rechargeable li-ion battery (3.7V) can be plugged in to a battery connector to puwer the magicbit. Battery can be recharged by providing USb power to the magicbit.
+
+
+MODULES
+=======
+There are four module connectors on the edge connector of the magicbit, which we refer to as ports. Which can connect various accessories to magicbit board and program to work with magicbit. Matching accessory pin connector color marked on the magicbit. As an example module with blue pin connector should plug in to blue port of the magicbit.
+
+
+
+USB
+===
+There is a micro USB port on the back of the magicbit.Connect the micro USB port to a mobile phone charger or computer through a cable and it will draw power required for the board to function and it also used program magibit and data transferring with a computer.
+
+WiFi
+====
+WiFi is a technology that uses radio waves to provide network connectivity. Magic bit consists with wifi module. WiFi  technology has widely spread lately and you can get connected almost anywhere; at home, at work, in libraries, schools, airports, hotels and even in some restaurants enabling IOT connectivity capabilities.
+
+
+Bluetooth
+=========
+
+Bluetooth is a wireless technology standard used for exchanging data between fixed and mobile devices over short distances using short-wavelength UHF radio waves.
+Magic bit consists with wifi module which enables IOT connectivity capabilities
+
+Expansion Connector
+===================
+Magicbit can connect various electronic sensors, electronically controlled actuators,etc to Magicbit via these external connectors
+
+Crocodile Clip Connectors
+=========================
+
+Magicbit crocodile clip connectors used to connect an electrical cable to a battery or some other component. Functioning much like a spring-loaded clothespin, the clip's tapered, serrated jaws are forced together by a spring to grip an object
+
+Reset Button
+============
+In electronics and technology, a reset button is a button that can reset a device. On Magicbit, the reset button restarts the MagicBit’s programme
+
+===============
+Getting Started
+===============
+
+
 .. image:: https://github.com/magicbitlk/Magicbit-Arduino/raw/master/Resources/Arduino1.6.4_IDE_small.png
 
 
@@ -56,38 +176,14 @@ Caution
 To use analogWrite, Tone and Servo funtions,
 Include ESP32Servo **Sketch->Include Library->ESP32Servo** or put **#include <ESP32Servo.h>** on top of arduino sketch.
 
+
+**************************
+
 ========
-Hardware
+Examples
 ========
+**************************
 
-Brain of the magicbit is ESP32, which is a series of low-cost, low-power system on a chip microcontrollers with integrated Wi-Fi and dual-mode Bluetooth. Therefore any project or document available on internet which supports ESP32 is supported for Magicbit as well.
-
-**************
-Specifications
-**************
-- **Processor** - Xtensa dual-core
-- **Speed**- Up to 240Mhz
-- **Flash Memory**-4MB
-- **Ram**-520KB
-- **Inputs**-Pushbutton, LDR, Potentiometer
-- **Outputs**-LEDs, OLED Display, Buzzer
-- **Other**- Dual Motor Driver, Li-Ion Charger
-- **Connectivity**- USB, WiFi, Bluetooth
-
-*****************
-Features
-*****************
-.. image:: https://github.com/magicbitlk/Magicbit-Arduino/raw/master/Resources/Layout.png
-
-***************
-Pinmap
-***************
-
-.. image:: https://github.com/magicbitlk/arduino-esp32/raw/master/docs/pinout.png
-
-***********
-Accessories
-***********
 
 *************************
 Example 1: Blinking an LED
@@ -140,7 +236,7 @@ Explanation
  **delay(ms):** Pauses the program for the amount of time (in milliseconds) specified as parameter.(note 1000 milliseconds equals to one second)
 Activity
 ***********
- Write code for a knight rider pattern using on board leds of magicbit
+.. note:: Write code for a knight rider pattern using on board leds of magicbit
 
 .. raw:: latex
 
@@ -213,7 +309,7 @@ Explanation
 
 Activity
 ***********
- Write a code to toggle an LED in the button press. LED turns on when button pressed & released, LED turns off when button is pressed & released again. (Hint: Make use of variables to ‘remember’ the state of the button press). 
+.. note:: Write a code to toggle an LED in the button press. LED turns on when button pressed & released, LED turns off when button is pressed & released again. (Hint: Make use of variables to ‘remember’ the state of the button press). 
 
 
 .. raw:: latex
@@ -272,7 +368,7 @@ Explanation
 
 Activity
 ***********
- This example we have coded to increase the brightness, write a code to do the opposite of that, to fade the brightness of the led, & put both effects together to create a beautiful fade & light up effect.
+.. note:: This example we have coded to increase the brightness, write a code to do the opposite of that, to fade the brightness of the led, & put both effects together to create a beautiful fade & light up effect.
 
 .. raw:: latex
 
@@ -346,9 +442,11 @@ Explanation
  **Serial.println(stuff to print):** Using this function, serial data can be sent, stuff to print can be any type of arduino variable, or even a static string, this is different than Serial.print() is this always prints the content in a new line, rather than printing all in one line.
 Activity
 ***********
- do the same example using Serial.print(), observe the difference.  Create a button press counter, which displays the button press count on the serial console of arduino IDE.
+.. note:: do the same example using Serial.print(), observe the difference.  Create a button press counter, which displays the button press count on the serial console of arduino IDE.
 
+.. raw:: latex
 
+    \newpage
 
 ***********************************
 Example 5: Reading an Analog Signal
@@ -405,9 +503,11 @@ Explanation
 
 Activity
 ***********
- Do the same example using the LDR on the board (D36)
+.. note:: Do the same example using the LDR on the board (D36)
 
+.. raw:: latex
 
+    \newpage
 *************************
 Example 6: Generating Tones
 *************************
@@ -456,9 +556,11 @@ Explanation
 
 Activity
 ***********
- Create a program that plays one frequency when one push button on the board pressed, and another frequency when the other push button when pressed.
+.. note:: Create a program that plays one frequency when one push button on the board pressed, and another frequency when the other push button when pressed.
 
+.. raw:: latex
 
+    \newpage
 
 
 ****************************************
@@ -539,4 +641,4 @@ Explanation
 
 Activity
 ***********
- Make a program to display the ADC value of the potentiometer on the OLED display. 
+.. note:: Make a program to display the ADC value of the potentiometer on the OLED display. 
