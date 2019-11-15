@@ -1,8 +1,5 @@
-================
-What is Magicbit
-================
 **************
-Introduction
+What is Magicbit
 **************
 
 This device is an Integrated development platform for learning and solution designing of electronics, robotics, Internet of Things and coding. The device can interact with a host of sensors such as light sensors, fire sensors, motion detectors etc. and output devices such as LEDs, switches, buzzers, speakers, motors etc.
@@ -30,95 +27,116 @@ Specifications
 - **Connectivity**- USB, WiFi, Bluetooth
 
 *****************
-Features
+Hardware
 *****************
+Layout
+======
+
 .. image:: https://github.com/magicbitlk/Magicbit-Arduino/raw/master/Resources/Layout.png
 
-***************
+
 Pinmap
-***************
+======
+
 
 .. image:: https://github.com/magicbitlk/arduino-esp32/raw/master/docs/pinout.png
 
-***********
-Accessories
-***********
+
+Features
+========
+
 
 
 LED
-===
+---
+
 
 There are four leds on backside of the magicbit with color red, yellow, green & blue. A LED(light-emitting diode) is a semiconductor light source that emits light when current flows through it. Blinking a LED is the hello world to the microcontroller programming world.
 
 
 BUTTON
-======
+------
+
 There are two buttons on the front of the magicbit. The push-button is a component that connects two points in a circuit when you press it. The example turns on an LED when you press the button.
 
 
 
 LDR
-===
+---
+
 There is a LDR on the front of the magicbit. LDR(Light Dependent Resistor) is a light-controlled variable resistor. The resistance of a photo-resistor decreases with increasing incident light intensity. You can measure light intensity using LDR as a analog output.
 
 
 POTENTIOMETER
-=============
+-------------
+
 The potentiometer is a component with rotating contact that forms an adjustable voltage divider. A potentiometer is a simple knob that provides a variable resistance, which we can read into the magicbit board as an analog value.
 
 
 DISPLAY
-=======
+-------
+
 OLED (Organic Light Emitting Diodes) is a flat light emitting technology. OLED display has a film of organic compound that emits light in response to an electric current.You can display varoius graphics and text on the display.
 
 BUZZER
-======
+------
+
 There is a buzzer on the front of the magicbit. Buzzer is an electronic device commonly used to produce sound.
 
 
 
 BATTERY
-=======
+-------
+
 There is a Battery connector on the front of the magicbit.Single cell rechargeable li-ion battery (3.7V) can be plugged in to a battery connector to puwer the magicbit. Battery can be recharged by providing USb power to the magicbit.
 
 
 MODULES
-=======
+-------
+
 There are four module connectors on the edge connector of the magicbit, which we refer to as ports. Which can connect various accessories to magicbit board and program to work with magicbit. Matching accessory pin connector color marked on the magicbit. As an example module with blue pin connector should plug in to blue port of the magicbit.
 
 
 
 USB
-===
+---
+
 There is a micro USB port on the back of the magicbit.Connect the micro USB port to a mobile phone charger or computer through a cable and it will draw power required for the board to function and it also used program magibit and data transferring with a computer.
 
 WiFi
-====
+----
+
 WiFi is a technology that uses radio waves to provide network connectivity. Magic bit consists with wifi module. WiFi  technology has widely spread lately and you can get connected almost anywhere; at home, at work, in libraries, schools, airports, hotels and even in some restaurants enabling IOT connectivity capabilities.
 
 
-Bluetooth
-=========
+BLUETOOTH
+---------
+
 
 Bluetooth is a wireless technology standard used for exchanging data between fixed and mobile devices over short distances using short-wavelength UHF radio waves.
 Magic bit consists with wifi module which enables IOT connectivity capabilities
 
-Expansion Connector
-===================
+EXPANSION HEADER
+----------------
+
 Magicbit can connect various electronic sensors, electronically controlled actuators,etc to Magicbit via these external connectors
 
-Crocodile Clip Connectors
-=========================
+CROCODILE CLIP
+--------------
+
 
 Magicbit crocodile clip connectors used to connect an electrical cable to a battery or some other component. Functioning much like a spring-loaded clothespin, the clip's tapered, serrated jaws are forced together by a spring to grip an object
 
-Reset Button
-============
+RESET BUTTON
+------------
+
 In electronics and technology, a reset button is a button that can reset a device. On Magicbit, the reset button restarts the MagicBit’s programme
 
-===============
+
+***************
 Getting Started
-===============
+***************
+
 
 
 .. image:: https://github.com/magicbitlk/Magicbit-Arduino/raw/master/Resources/Arduino1.6.4_IDE_small.png
@@ -131,9 +149,10 @@ Magicbit is based on ESP32 and Arduino core for the Magicbit forked from the `es
 
 
 
-*************************
+
 Installation Instructions
-*************************
+=========================
+
 - Relase Link -https://github.com/magicbitlk/arduino-esp32/releases/download/V1.0.0/package_magicbit_index.json
 
 - Install the current upstream Arduino IDE at the 1.8 level or later. The current version is at the [Arduino website](http://www.arduino.cc/en/main/software).
@@ -142,9 +161,10 @@ Installation Instructions
 - Open Boards Manager from Tools > Board menu and install magicbit platform (and don't forget to - - select Magicbit from Tools > Board menu after installation).
 
 .. image:: https://github.com/magicbitlk/Magicbit-Arduino/raw/master/Resources/ArduinoSetup.gif
-***********
+
 Powering Up
-***********
+===========
+
      Magicbit can be powerup by either connecting USB cable or connecting battery. For programming USB cable must be connected to the computer. For the first time powering up Magicbit self test program will be running on the magicbit and you can see the features available and functional tests on Magicbit display.       
 
 To check whether drivers are correctly installed open the Ardunio IDE and go the Tools menu. There should be a port (Eg:COM1) shown when plugging Magicbit to the computer as shown below. If not please follow Installation drivers section.
@@ -152,70 +172,79 @@ To check whether drivers are correctly installed open the Ardunio IDE and go the
 .. image:: https://github.com/magicbitlk/Magicbit-Arduino/raw/master/Resources/Ardunio_port.png
 
 
-********************
+
 Installation Drivers (Optional)
-********************
+===============================
+
 
 Magicbit has CH340 chip as USB-Serial converter which driver already packaged with Ardunio IDE. If port not shown in the Arduino as shown below please install `driver <https://github.com/magicbitlk/Magicbit-Arduino/blob/master/Resources/CH34x_Install_Windows_v3_4.EXE>`_
 
 
-*************
+
 First Project
-*************
+=============
+
 
 - Open Ardunio IDE if not opened already.
 - Select Magicbit from **Tools->Boards**
 - Select port **Tools->Ports**
 - Open Blink Example **File->Examples->Basic->Blink**
-- Upload the code to the Magicbit 
+- Upload the code to the Magicbit using upload button on Arduino IDE 
 - If Green Led on backside of the Magicbit is blinking your have just begun the magic with Magicbit
 
-*************
-Caution
-*************
-To use analogWrite, Tone and Servo funtions,
+
+.. warning:: To use analogWrite, Tone and Servo funtions,
 Include ESP32Servo **Sketch->Include Library->ESP32Servo** or put **#include <ESP32Servo.h>** on top of arduino sketch.
 
 
-**************************
 
-========
+
+
+********
 Examples
-========
-**************************
+********
 
 
-*************************
+
+
+
 Example 1: Blinking an LED
-*************************
+==========================
+
 Introduction
-************
+------------
+
      In this example you are learning how to turn on and off a LED or any other actuator which can be controlled by a digital output such as relay, bulb, motor.
 
 Learning Outcomes
-*****************
+
+-----------------
  From this example, you'll get an understanding about,
 -  Pin Mode
 -  Digital Write
 -  Delay Functions
 
 Components
-**********
+----------
+
 - Magic Bit
 
 Theory
-**********
+------
+
  A digital output allows you to control a voltage with an electronic device. If the device instructs the output to be high, the output will produce a voltage (generally about 5 or 3.3 volts). If the device instructs the output to be low, it is connected to ground and produces no voltage.Here magicbit is the device and output voltage is either 3.3V for HIGH and 0V for LOW.
 
 Methodology
-***********
+-----------
+
  Magicbit equipped with four onboard leds in magicbit development board, Lets select yellow LED (which is wired to D18)
 
  .. image:: https://github.com/Ruwatech/docu-MagicBit/blob/master/Resources/image4.png?raw=true
  By setting output state to high of LED pin will turn on the led and by setting output state to LOW will turn of LED.
 
 Coding
-******
+------
+
  .. code-block:: c
 
      void setup(){
@@ -228,14 +257,14 @@ Coding
 	delay(1000);
      }
 Explanation
-***********
+-----------
+
  **pinMode(pin, Mode):** Configures the specified pin to behave either as an input or an output. Here we use pin as an output
 
  **digitalWrite(pin No, State):** Write a HIGH or a LOW value to a digital pin.Pin mode must be setup for the same pin in Setup to work this function properly.
 
  **delay(ms):** Pauses the program for the amount of time (in milliseconds) specified as parameter.(note 1000 milliseconds equals to one second)
-Activity
-***********
+
 .. note:: Write code for a knight rider pattern using on board leds of magicbit
 
 .. raw:: latex
