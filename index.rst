@@ -270,30 +270,30 @@ Explanation
 
     \newpage
 
-*************************
+
 Example 2: Reading the state of a push button
-*************************
+==========================
 Introduction
-************
+------------
      In this example you are learning how read a digital input from something like a button & use it to turn on and off a LED or any other digital device.
 
 Learning Outcomes
-*****************
+--------------------
  From this example, you'll get an understanding about,
 -  Digital Read
 -  IF-ELSE conditions
 -  Variables
 
 Components
-**********
+-------------
 - Magicbit
 
 Theory
-**********
+------------
  A digital input allows you to read digital signals. Microcontroller recognizes the signal as 1(HIGH) when the signal is close to 3.3v (or 5v depending on the microcontroller) and recognizes as 0(LOW) when the signal is close to 0v. This reading can be used in the program to do various things.  
 
 Methodology
-***********
+-----------
  Magicbit equipped with two onboard push buttons in Magicbit development board, Lets select the push button which is wired to D34. Buttons on the board are in pulled up internally (to learn more about pullups/pulldowns follow this link), which means when button is not pressed the status of the button is 1(HIGH), & when the button is pressed the status of the button is 0(LOW).
 
  .. image:: https://github.com/Ruwatech/docu-Magicbit/blob/master/Resources/image7.png?raw=true
@@ -305,7 +305,7 @@ Methodology
  Then we can use the variable as the condition of the if block, and if the button is pressed, the bulb should turn on, and the button is not pressed the light should turn off. 
 
 Coding
-******
+----------
  .. code-block:: c
 
      void Setup(){
@@ -323,7 +323,7 @@ Coding
      }
 
 Explanation
-***********
+--------------
  **digitalRead(pin No):** Reads the condition of the given pin and returns a digital value HIGH or LOW.
 
  **IF/ELSE:** Used to evaluate a digital condition, we can put a digital logic condition in then parenthesis. If the condition is true, it executes the code block in the immediate curly bracket section, if the condition is false it executes the code block in the else curly bracket. 
@@ -335,8 +335,6 @@ Explanation
   }
 
 
-Activity
-***********
 .. note:: Write a code to toggle an LED in the button press. LED turns on when button pressed & released, LED turns off when button is pressed & released again. (Hint: Make use of variables to ‘remember’ the state of the button press). 
 
 
