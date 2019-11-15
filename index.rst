@@ -17,7 +17,6 @@ This device also has the following special features:
 - An enclosure for productization of designs
 
 Brain of the Magicbit is ESP32, which is a series of low-cost, low-power system on a chip microcontrollers with integrated Wi-Fi and dual-mode Bluetooth. Therefore any project or document available on internet which supports ESP32 is supported for Magicbit as well.
-
 *****************
 Hardware
 *****************
