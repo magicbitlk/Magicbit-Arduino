@@ -1,6 +1,7 @@
-**************
+
+****************
 What is Magicbit
-**************
+****************
 .. image:: https://github.com/magicbitlk/Magicbit-Arduino/raw/master/Resources/magicbit_unit.png
 
 
@@ -20,7 +21,6 @@ Brain of the Magicbit is ESP32, which is a series of low-cost, low-power system 
 *****************
 Hardware
 *****************
-
 Specifications
 =============
 - **Processor** - Xtensa dual-core
@@ -205,10 +205,8 @@ First Project
 
 
 ***************
-Getting Started
+Examples
 ***************
-
-
 Example 1: Blinking an LED
 ==========================
 
