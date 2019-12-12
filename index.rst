@@ -668,3 +668,35 @@ Explanation
 
 
 .. note:: Make a program to display the ADC value of the potentiometer on the OLED display. 
+.. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/3-1024x576.jpg
+
+
+* To create the Magicblocks.io platform, first you need to add your Magicblocks.io device to your Magicblocks Developer Account. Do it according the following video.
+
+
+.. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/image1.png
+
+# Magicblocks.io PLAYGROUND 
+
+
+ .. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/3-1024x576.jpg
+
+The editor window consists of four components:
+
+* The header at the top, containing the deploy button, main menu, and, if user authentication is enabled, the user menu.
+* The palette on the left, containing the nodes available to use.
+* The main workspace in the middle, where flows are created.
+* The sidebar on the right.
+
+
+ .. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/editor-default-components-1024x683.png
+
+
+
+The main workspace is where flows are developed by dragging nodes from the palette and wiring them together.
+The workspace has a row of tabs along the top; one for each flow and any subflows that have been opened.
+
+Source:[www.nodered.org](www.nodered.org)
+
+
+.. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/editor-flow-tabs.png
