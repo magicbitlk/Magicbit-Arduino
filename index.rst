@@ -1,4 +1,3 @@
-
 ****************
 What is Magicbit
 ****************
@@ -913,6 +912,22 @@ Adding a flow
 
 Editing flow properties
 
+=======================
+
+To edit a flow’s properties, double-click on its tab in the top bar. This will open the Flow Properties dialog.
+
+Within the dialog, the flow’s name and description can be set. The description can use Markdown syntax for formatting and will appear in the Information sidebar.
+
+The Status property can be used to disable or enable the flow.
+
+
+.. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/editor-edit-flow.png
+
+Deleting a flow
+===============
+
+To delete a flow, click the ‘Delete’ button in the Flow Properties dialog.
+
 =================
 Magicbit Sensors
 =================
@@ -1565,20 +1580,3 @@ void loop() {
   Serial.print(hif);
   Serial.println(F("°F"));
 }
-
-
-=======================
-
-To edit a flow’s properties, double-click on its tab in the top bar. This will open the Flow Properties dialog.
-
-Within the dialog, the flow’s name and description can be set. The description can use Markdown syntax for formatting and will appear in the Information sidebar.
-
-The Status property can be used to disable or enable the flow.
-
-
-.. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/editor-edit-flow.png
-
-Deleting a flow
-===============
-
-To delete a flow, click the ‘Delete’ button in the Flow Properties dialog.
