@@ -23,7 +23,8 @@ Hardware
 *****************
 
 Specifications
-=============
+==============
+
 - **Processor** - Xtensa dual-core
 - **Speed**- Up to 240Mhz
 - **Flash Memory**-4MB
@@ -217,9 +218,10 @@ Introduction
      In this example you are learning how to turn on and off a LED or any other actuator which can be controlled by a digital output such as relay, bulb, motor.
 
 Learning Outcomes
+------------------
 
------------------
  From this example, you'll get an understanding about,
+
 -  Pin Mode
 -  Digital Write
 -  Delay Functions
@@ -240,6 +242,7 @@ Methodology
  Magicbit equipped with four onboard leds in Magicbit development board, Lets select yellow LED (which is wired to D18)
 
  .. image:: https://github.com/Ruwatech/docu-Magicbit/blob/master/Resources/image4.png?raw=true
+
  By setting output state to high of LED pin will turn on the led and by setting output state to LOW will turn of LED.
 
 Coding
@@ -256,6 +259,7 @@ Coding
 	digitalWrite(18,LOW);
 	delay(1000);
      }
+
 Explanation
 -----------
 
@@ -265,15 +269,12 @@ Explanation
 
  **delay(ms):** Pauses the program for the amount of time (in milliseconds) specified as parameter.(note 1000 milliseconds equals to one second)
 
-.. note:: Write code for a knight rider pattern using on board leds of Magicbit
-
-.. raw:: latex
-
-    \newpage
+**Note: Write code for a knight rider pattern using on board leds of Magicbit**
 
 
 Example 2: Reading the state of a push button
-==========================
+=============================================
+
 Introduction
 ------------
      In this example you are learning how read a digital input from something like a button & use it to turn on and off a LED or any other digital device.
@@ -281,6 +282,7 @@ Introduction
 Learning Outcomes
 --------------------
  From this example, you'll get an understanding about,
+
 -  Digital Read
 -  IF-ELSE conditions
 -  Variables
@@ -298,6 +300,7 @@ Methodology
  Magicbit equipped with two onboard push buttons in Magicbit development board, Lets select the push button which is wired to D34. Buttons on the board are in pulled up internally (to learn more about pullups/pulldowns follow this link), which means when button is not pressed the status of the button is 1(HIGH), & when the button is pressed the status of the button is 0(LOW).
 
  .. image:: https://github.com/Ruwatech/docu-Magicbit/blob/master/Resources/image7.png?raw=true
+
  Also like in previous example we need to select an LED to indicate the change, lets select RED LED which is wired to pin D27.
 
  First we set the input output configurations of the Button and the LED using pinMode, in this case button is an INPUT, LED is an OUTPUT.
@@ -332,42 +335,42 @@ Explanation
   if(condition){
 	//Do if condition is true
   }else{
-	//Do if condition is false
-  }
+	//Do if condition is false}
 
 
-.. note:: Write a code to toggle an LED in the button press. LED turns on when button pressed & released, LED turns off when button is pressed & released again. (Hint: Make use of variables to ‘remember’ the state of the button press). 
-
-
-.. raw:: latex
-
-    \newpage
+**Note: Write a code to toggle an LED in the button press. LED turns on when button pressed & released, LED turns off when button is pressed & released again. (Hint: Make use of variables to ‘remember’ the state of the button press).**
 
 
 Example 3: Working with Analog Write
-==========================
+====================================
+
 Introduction
-----------------
+---------------
      In this example you are learning how to turn on and off a LED or any other actuator which can be controlled by a digital output such as relay, bulb, motor.
 
 Learning Outcomes
 -------------------
  From this example, you'll get an understanding about,
+
 -  Pulse Width Modulation
 -  Analog Write
 
 Components
 ------------
+
 - Magicbit
 
 Theory
 -----------
+
  To change the brightness of a LED we could change the voltage the LED is supplied with, but in a microcontroller, ability to change the voltage (converting a digital number to an analog voltage) is limited, so a method called PWM (Pulse Width Modulation) is used. What this does is pulsing on and off the pin in a high frequency. The length of the pulses creates the perception of brightness. 
 
  Duty cycle is a term used to describe the ratio between on and off times.
 
  .. image:: https://github.com/Ruwatech/docu-Magicbit/blob/master/Resources/image8.png?raw=true
+
  In this example higher Duty cycle gives higher brightness & lower duty cycle gives lower brightness.
+
 Methodology
 -------------
  Lets select green LED (which is wired to D16). We will use a for loop to generate the duty cycle (0 - 0% duty, 255-100% duty). And also to generate 255 cycles.
@@ -394,27 +397,27 @@ Explanation
  **analogWrite(pin number, pwm value):** You can input the pin number you need to do pwm and then the pwm value you need to give to that pin. This assigns the corresponding duty cycle to the pin.
 
 
-.. note:: This example we have coded to increase the brightness, write a code to do the opposite of that, to fade the brightness of the led, & put both effects together to create a beautiful fade & light up effect.
-
-.. raw:: latex
-
-    \newpage
+**Note This example we have coded to increase the brightness, write a code to do the opposite of that, to fade the brightness of the led, & put both effects together to create a beautiful fade & light up effect.**
 
 
 Example 4: Using Serial Protocol
-===============================
+=================================
+
 Introduction
 ------------
      In this example you are learning to use serial communication function.
 
 Learning Outcomes
 -----------------
+
  From this example, you'll get an understanding about,
+
 -  Serial Protocol usage between Magicbit & the PC
 
 
 Components
 ----------
+
 - Magicbit
 - Computer with arduino installed
 
@@ -466,41 +469,45 @@ Explanation
  **Serial.print(stuff to print):** Using this function, serial data can be sent, stuff to print can be any type of arduino variable, or even a static string.
 
  **Serial.println(stuff to print):** Using this function, serial data can be sent, stuff to print can be any type of arduino variable, or even a static string, this is different than Serial.print() is this always prints the content in a new line, rather than printing all in one line.
+
 Activity
 ---------
-.. note:: do the same example using Serial.print(), observe the difference.  Create a button press counter, which displays the button press count on the serial console of arduino IDE.
-
-.. raw:: latex
-
-    \newpage
-
+**Note: do the same example using Serial.print(), observe the difference.  Create a button press counter, which displays the button press count on the serial console of arduino IDE.**
 
 Example 5: Reading an Analog Signal
 ===================================
+
 Introduction
------------
+-------------
+
      In this example you are learning to read an analog sensor & print it on the serial console.
 
 Learning Outcomes
----------------
+------------------
+
  From this example, you'll get an understanding about,
+
 -  Analog Read function
 
 
 Components
----------
+-----------
+
 - Magicbit
 
 Theory
-------
+-------
+
  In real world most of the signals we encounter are analog signals (temperature, air pressure, velocity), they are continuous. But computers work on digital domain, to interact between the worlds, representing an analog signal in the digital domain is important. 
  (to read more about analog to digital conversation, follow this link)
 
 Methodology
 ------------
+
  For this example we use the potentiometer on the Magicbit board, which is connected to pin, D39. It generates a voltage between 0 and 3.3V according to the angle of the potentiometer. 
 
  .. image:: https://github.com/Ruwatech/docu-Magicbit/blob/master/Resources/image1.png?raw=true
+
  We read the analog signal and storing it in an int type variable(0v= 0 analog value, 3.3v = 1024 analog value), sensorValue, later, we use this value to print on the serial window of arduino IDE as well as light up the  red LED(D27) if the analog value exceeds than 512.
 
 Coding
@@ -529,25 +536,27 @@ Explanation
 
 Activity
 ---------
-.. note:: Do the same example using the LDR on the board (D36)
 
-.. raw:: latex
-
-    \newpage
+**Note: Do the same example using the LDR on the board (D36)**
 
 Example 6: Generating Tones
-==========================
+=============================
+
 Introduction
-************
+-------------
+
      In this example you are learning to generate a tone using the onboard buzzer on the Magicbit.
 
 Learning Outcomes
-----------------
+------------------
+
  From this example, you'll get an understanding about,
+
 -  Tone Function
 
 Components
--------------
+-----------
+
 - Magicbit
 
 Theory
@@ -559,6 +568,7 @@ Methodology
  For this example we use the piezo buzzer wired to pin 25 of the Magicbit. 
 
  .. image:: https://github.com/Ruwatech/docu-Magicbit/blob/master/Resources/image2.png?raw=true
+
  ESP32Servo.h library is used to generate pwm signals needed to generate tones. We could specify the frequency & duration of the tone. 
 
 Coding
@@ -582,27 +592,26 @@ Explanation
 
 Activity
 --------
-.. note:: Create a program that plays one frequency when one push button on the board pressed, and another frequency when the other push button when pressed.
-
-.. raw:: latex
-
-    \newpage
-
+**Note:: Create a program that plays one frequency when one push button on the board pressed, and another frequency when the other push button when pressed.**
 
 
 Example 7: Using the onboard OLED Screen
-=======================================
+=========================================
+
 Introduction
 ------------
      Color OLED screen on Magicbit can display text as well as simple logos & images.
 
 Learning Outcomes
-----------------
+------------------
+
  From this example, you'll get an understanding about,
+
 -  Using Adafruit OLED library
 
 Components
-----------
+-----------
+
 - Magicbit
 
 Theory
@@ -651,8 +660,10 @@ Coding
     delay(1000);
 
     }
+
 Explanation
 -----------
+
  **display.clearDisplay():** Clears the OLED display.
 
  **display.setTextSize(2):** Set the font size of the text.
@@ -666,276 +677,11 @@ Explanation
  **display.display():** Updates the changes to the screen.
 
 
-.. note:: Make a program to display the ADC value of the potentiometer on the OLED display. 
+**Note:: Make a program to display the ADC value of the potentiometer on the OLED display.** 
 
-.. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/3-1024x576.jpg?raw=true
 
-
-* To create the Magicblocks.io platform, first you need to add your Magicblocks.io device to your Magicblocks Developer Account. Do it according the following video.
-
-
-.. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/image1.png?raw=true
-
-# Magicblocks.io PLAYGROUND 
-
-
- .. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/3-1024x576.jpg?raw=true
-
-The editor window consists of four components:
-
-* The header at the top, containing the deploy button, main menu, and, if user authentication is enabled, the user menu.
-* The palette on the left, containing the nodes available to use.
-* The main workspace in the middle, where flows are created.
-* The sidebar on the right.
-
-
- .. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/editor-default-components-1024x683.png?raw=true
-
-
-
-The main workspace is where flows are developed by dragging nodes from the palette and wiring them together.
-The workspace has a row of tabs along the top; one for each flow and any subflows that have been opened.
-
-Source:[www.nodered.org](www.nodered.org)
-
-
-.. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/editor-flow-tabs.png?raw=true
-
-
-***************
-Getting Started
-***************
-
-How to create magicblocks account
-=================================
-
-- Go to magicblocks website `http://magicblocks.io/  <http://magicblocks.io>`_
-
-
-- Select SIGNUP
-
-
-There are four leds on backside of the Magicbit with color red, yellow, green & blue. A LED(light-emitting diode) is a semiconductor light source that emits light when current flows through it. Blinking a LED is the hello world to the microcontroller programming world.
-
-
-BUTTON
-------
-
-There are two buttons on the front of the Magicbit. The push-button is a component that connects two points in a circuit when you press it. The example turns on an LED when you press the button.
-
-
-
-LDR
----
-
-There is a LDR on the front of the Magicbit. LDR(Light Dependent Resistor) is a light-controlled variable resistor. The resistance of a photo-resistor decreases with increasing incident light intensity. You can measure light intensity using LDR as a analog output.
-
-
-POTENTIOMETER
--------------
-
-The potentiometer is a component with rotating contact that forms an adjustable voltage divider. A potentiometer is a simple knob that provides a variable resistance, which we can read into the Magicbit board as an analog value.
-
-
-DISPLAY
--------
-
-OLED (Organic Light Emitting Diodes) is a flat light emitting technology. OLED display has a film of organic compound that emits light in response to an electric current.You can display varoius graphics and text on the display.
-
-BUZZER
-------
-
-There is a buzzer on the front of the Magicbit. Buzzer is an electronic device commonly used to produce sound.
-
-
-
-BATTERY
--------
-
-There is a Battery connector on the front of the Magicbit.Single cell rechargeable li-ion battery (3.7V) can be plugged in to a battery connector to puwer the Magicbit. Battery can be recharged by providing USb power to the Magicbit.
-
-
-MODULES
--------
-
-There are four module connectors on the edge connector of the Magicbit, which we refer to as ports. Which can connect various accessories to Magicbit board and program to work with Magicbit. Matching accessory pin connector color marked on the Magicbit. As an example module with blue pin connector should plug in to blue port of the Magicbit.
-
-
-
-USB
----
-Specifications
-=============
-- **Processor** - Xtensa dual-core
-- **Speed**- Up to 240Mhz
-- **Flash Memory**-4MB
-- **Ram**-520KB
-- **Inputs**-Pushbutton, LDR, Potentiometer
-- **Outputs**-LEDs, OLED Display, Buzzer
-- **Other**- Dual Motor Driver, Li-Ion Charger
-- **Connectivity**- USB, WiFi, Bluetooth
-
-
-Layout
-======
-
-.. image:: https://github.com/magicbitlk/Magicbit-Arduino/raw/master/Resources/features_frontTP.png
-.. image:: https://github.com/magicbitlk/Magicbit-Arduino/raw/master/Resources/features_backTP.png
-
-
-Pinmap
-======
-
-
-.. image:: https://github.com/Magicbitlk/arduino-esp32/raw/master/docs/pinout.png
-
-
-Features
-========
-.. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/pasted-image-0-1-1024x576.png?raw=true
-
-
-- Click on the SIGN UP button after inserted your details
-
-
-.. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/pasted-image-0-2-1024x576.png?raw=true
-
-
-
-- Go to the email account you provided and activate your Magicblocks account with the Activation Link
-
-- Follow the Activation Link which we have sent you as an email.
-
-
-.. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/SS1.png?raw=true
-
-- Log In to Your Magicblocks.io Account
-
-- Enter your email address and the Magicblocks Password and sign in to magicblocks
-- Go to Magicblocks.io official website. `www.magicblocks.io <http://magicblocks.io>`_
-
-- Select LOGIN
-- Provide your login details.
-
-
-.. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/SS2.png?raw=true
-
-Connecting to a WiFi network
-============================
-
-- Power up module from USB or Battery.
-- Connect your device as wifi access point of your computer.
-
-
-
-
-.. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/SS3.png?raw=true
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- Navigate to http://192.168.4.1in your browser
-
-- Select the WiFi network through which the MagicZero should connect to internet from the dropdown menu.
-
-- Enter the password of the WiFi network selected previously.
-
-- Click 'Submit' and you will receive a message “Access point saved. Restarting…”- If connection to WiFi is successful, navigate to the Device Manager of your magicblocks account (refresh if already opened) and you should see that the connection is showing a green 'thumbs up' icon.
-
-- After setting up Magicbit ,you can disconnect it from your computer Network setting and connect your default access point for getting access to the Internet._
-
-Add your Magicbit to magicblocks
-========================
-
-- Click on Device Manager button of your Magicblocks Account
-
-
-
-.. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/SS4.png?raw=true
-
-- Click on Add Device
-
-- Fill out following details
-
-
-.. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/SS5.png?raw=true
-
-- Device ID: (which is printed on the top side of your device chip)
-
-- Serial Key:(which is printed on the top side of your device chip)
-- Name:Any Name
-
-Activate PLAYGROUND in Magicblocks.io.
-======================================
-
-All your Flows create in magicblocks should be create on your PLAYGROUND. Therefore activate it firstly.
-
-Follow these steps to do it!
-- Go to the Playground tab in your Magicblocks developer account
-
-
- .. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/Untitled-1-1024x576.jpg?raw=true
-
-Activate the playground using **start playground** reference. Then the web page appears as follows. (If you entering the playground the web page appears in bellow picture, you don't want to follow above steps)
-
-
- .. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/Untitled-2-1024x576.jpg?raw=true
-
-- The **Edit** button showing with dotted line in the above picture you can enter the playground.
-
-
- .. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/3-1024x576.jpg?raw=true
-
- .. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/editor-default-components-1024x683.png?raw=true
-
-
-
-The main workspace is where flows are developed by dragging nodes from the palette and wiring them together.
-The workspace has a row of tabs along the top; one for each flow and any subflows that have been opened.
-
-
-
-.. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/editor-flow-tabs.png?raw=true
-
-Adding a flow
-=============
-
-.. image::https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/plus.png?raw=true
-" button in the top bar.
-
-Editing flow properties
-
-=======================
-
-To edit a flow’s properties, double-click on its tab in the top bar. This will open the Flow Properties dialog.
-
-Within the dialog, the flow’s name and description can be set. The description can use Markdown syntax for formatting and will appear in the Information sidebar.
-
-The Status property can be used to disable or enable the flow.
-
-
-.. image:: https://github.com/magicbitlk/Magicbit-Magicblocks.io/blob/master/Images/editor-edit-flow.png?raw=true
-
-Deleting a flow
-===============
-
-To delete a flow, click the ‘Delete’ button in the Flow Properties dialog.
-
-
-=================
-Magicbit Sensors
-=================
+**Magicbit Sensors**
+=====================
 
 
 01. Proximity Sensor
@@ -981,13 +727,19 @@ A proximity sensor is a sensor able to detect the presence of nearby objects wit
 .. code-block:: c
 
 const int IRpin = 32;
+
 void setup() {
   Serial.begin(9600);
+
   pinMode (IRpin, INPUT);
+
 }
 void loop() {
+
   Serial.println(analogRead(IRpin));
+
   delay(100);
+
 }
 
 **Outputs: Serial monitor**
@@ -1055,16 +807,23 @@ You can get outputs using serial monitor.
 2.5 Coding
 -----------
 .. code-block:: c
+
 const int TILTpin = 32;
 
 void setup() {
+
   Serial.begin(9600);
+
   pinMode (TILTpin, INPUT);
+
 }
 
 void loop() {
+
   Serial.println(digitalRead(TILTpin));
+
   delay(100);
+
 }
 
 
@@ -1121,21 +880,29 @@ You can get outputs using serial monitor.
 3.5 Coding
 -----------
 .. code-block:: c
+
 const int FLAMEpin = 32;
 
 void setup() {
+
   Serial.begin(9600);
+
   pinMode (FLAMEpin, INPUT);
+
 }
 
 void loop() {
+
   Serial.println(analogRead(FLAMEpin));
+
   delay(100);
+
 }
 
 
 3.6 Explanation
 ----------------
+
 Here we give an **analogRead**. That because we have to measure a range to take a decision that is there a flame or not.
 
 
@@ -1185,17 +952,25 @@ Figure 8: Door closed state
 
 4.5 Coding
 -----------
+
 .. code-block:: c
+
 const int DOORpin = 32;
 
 void setup() {
+
   Serial.begin(9600);
+
   pinMode (DOORpin, INPUT);
+
 }
 
 void loop() {
+
   Serial.println(digitalRead(DOORpin));
+
   delay(100);
+
 }
 
 4.6 Explanation
@@ -1255,19 +1030,27 @@ After completed those steps, upload following code for your Magicbit.
 5.5 Coding
 -----------
 .. code-block:: c
+
 #include <ESP32Servo.h>
 
 Servo MagicServo;
 
 void setup() {
+
 MagicServo.attach(32);
+
   }
 
 void loop( ) {
+
  for(int i=0; i<=180; i++){
+
   MagicServo.write(i);
+
   delay(10);
+
   }
+
 }
 
 
@@ -1278,9 +1061,9 @@ void loop( ) {
 **MagicServo.attach:** ‘attach’ means define which pin of the Magicbit connects to the servomotor.
 **For loop:** In here, we use for loop to incrementing loop action. Because of this the servomotor increments its angle 0 to 180 and after complete this action reset to the start position. This action is continued repeatedly inside the ‘for loop’.
 
-*******************
+
 06. Motion Sensor
-*******************
+=================
 
 6.1 Introduction
 ----------------
@@ -1315,13 +1098,21 @@ First, connect the motion sensor to your Magicbit and upload the following code 
 6.5 Coding
 ------------
 .. code-block:: c
+
 int MOTIONsensor =32;
+
 void setup() {
+
   pinMode(MOTIONsensor, INPUT);
+
   Serial.begin(9600);
+
 }
+
 void loop() {
+
   Serial.println(digitalRead(MOTIONsensor));
+
 }
 
 
@@ -1369,18 +1160,25 @@ After connect the RGB module to the Magicbit, connect it to your pc and upload f
 7.5 Coding
 -----------
 .. code-block:: c
+
 #include <Adafruit_NeoPixel.h>
+
 #define LED_PIN  32
+
 #define LED_COUNT 1
 
 Adafruit_NeoPixel LED(1,32, NEO_RGB + NEO_KHZ800);
 
 void setup() {
+
   LED.begin();
+
   LED.show();
+
 }
 
 void loop() {
+
   LED.setPixelColor(0, 255, 0, 255); // you can change these arguments and make your own designs using those commands. Follow the link in our documentary for more details.
   LED.show();
 
@@ -1435,15 +1233,23 @@ After connect the magnetic sensor to the Magicbit connect it to your pc and uplo
 8.5 Coding
 -----------
 .. code-block:: c
+
 #define MAGNETICsensor 32
 
 void setup() {
+
   Serial.begin(9600);
+
   pinMode(32, INPUT);
+
 }
+
 void loop() {
-  Serial.println(digitalRead(MAGNETICsensor));
-  delay(100);
+  
+Serial.println(digitalRead(MAGNETICsensor));
+  
+delay(100);
+
 }
 
 
@@ -1460,6 +1266,7 @@ This Magnetic sensor gives digital outputs. Therefor you can open the serial mon
 
 9.1 Introduction
 -----------------
+
 Soil moisture sensors typically refer to sensors that estimate volumetric water content. Another class of sensors measure another property of moisture in soils called water potential; these sensors are usually referred to as soil water potential sensors and include tensiometers and gypsum blocks.
 
 **Learning outcomes:**
@@ -1488,21 +1295,35 @@ Then connect the Magicbit to your pc and upload the code below.
 9.5 Coding 
 -----------
 .. code-block:: c
+
 int SENSOR = 32;
+
 int output_value ;
 
 void setup() {
+
    Serial.begin(9600);
+
    Serial.println("Reading From the Sensor ...");
+
    delay(2000);
+
 }
+
 void loop() {
+
    output_value= analogRead(SENSOR);
+
    output_value = map(output_value,550,0,0,100);
+
    Serial.print("Mositure : ");
+
    Serial.print(output_value);
+
    Serial.println("%");
+
    delay(1000);
+
 }
 
 9.6 Explanation
@@ -1548,41 +1369,66 @@ Connect the Temperature & Humidity sensor to the Magicbit via left upper connect
 10.5 Coding
 ------------
 .. code-block:: c
+
 #include "DHT.h"
+
 #define DHTPIN 32
+
 #define DHTTYPE DHT11
+
 DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
+
   Serial.begin(9600);
+
   Serial.println(F("DHTxx test!"));
+
   dht.begin();
+
 }
 void loop() {
+
   delay(2000);
 
   float h = dht.readHumidity();
+
   float t = dht.readTemperature();
+
   float f = dht.readTemperature(true);
 
   if (isnan(h) || isnan(t) || isnan(f)) {
+
     Serial.println(F("Failed to read from DHT sensor!"));
+
     return;
+
   }
 
   float hif = dht.computeHeatIndex(f, h);
+
   float hic = dht.computeHeatIndex(t, h, false);
 
   Serial.print(F("Humidity: "));
-  Serial.print(h);
-  Serial.print(F("%  Temperature: "));
-  Serial.print(t);
-  Serial.print(F("°C "));
-  Serial.print(f);
-  Serial.print(F("°F  Heat index: "));
-  Serial.print(hic);
-  Serial.print(F("°C "));
-  Serial.print(hif);
-  Serial.println(F("°F"));
-}
 
+  Serial.print(h);
+
+  Serial.print(F("%  Temperature: "));
+
+  Serial.print(t);
+
+  Serial.print(F("°C "));
+
+  Serial.print(f);
+
+  Serial.print(F("°F  Heat index: "));
+
+  Serial.print(hic);
+
+  Serial.print(F("°C "));
+
+  Serial.print(hif);
+
+  Serial.println(F("°F"));
+
+}
