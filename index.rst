@@ -386,7 +386,7 @@ Coding
   }
   void loop(){
 	for(int i = 0; i < 256; i++){
-	analogRead(16, i);
+	analogWrite(16, i);
 	delay(10);
   }
 
