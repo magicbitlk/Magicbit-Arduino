@@ -1398,10 +1398,10 @@ Connect the ultrasonic sensor module to magicbit using connector wire.in here we
   	Serial.println("cm");
 	}
 	
-11. IR LED 
+12. IR LED 
 ====================================
 
-11.1 Introduction
+12.1 Introduction
 ------------------
 
 IR or Infrared is commonly use communication technology in many cases. Becasue it is inexpensive and easy. Becuase of this technology is depend on light, this is widely used for short distance communication. The Ir LED module emits Infrared light in slightly higher freaquencies. So it use to transmit data and using IR receiver, we can take that data from another place.
@@ -1411,25 +1411,25 @@ IR or Infrared is commonly use communication technology in many cases. Becasue i
 •	Using IR LED and getting transmit data
 •	Apply IR LED in projects
 
-11.2 Components
+12.2 Components
 ----------------
 
 •	Magicbit
 •	IR LED module
 
-11.3 Theory
+12.3 Theory
 -----------
 
 IR light have slightly high wave length than visible light. So it can't see for us. Also it have high frequency range. Therfor using IR light we can trnsmit data from high frequency waveform. This is called modulated signal transmites. The sun and every light source emmite IR light. IR light is always arround us with many higher frequencies. Therefor in the communication we used some rare natural IR freaquencies. In many cases 38KHz is used. In this frequency the IR LED on and OFF 38000 times in a second.the encoded modulated data(binary data) transmitted by changing on and off pattern. Then this wave is receiving and demodulate by using some IR sensor. After using some microcontroller we can decode and know what is the the transmitter side is sent.
 
 .. image:: https://cdn.sparkfun.com/r/600-600/assets/4/1/6/1/c/5159e980ce395f8840000000.jpg
 
-11.4 Methodology
+12.4 Methodology
 -----------------
 
 Connect the IR LED module to magicbit. As usually we connect this module to upper right connector(D33) of the magicbit. Download and install IRremote library from here.Then connect the Magicbit to your pc and upload the following code.This code is used for transmit some data to some other device like TV,A/C or etc, When Right push button is pressed. According to your purpose change the binary code to change data what you want to transmit.
 
-11.5 Coding
+12.5 Coding
 ------------
 .. code-block:: c
 
