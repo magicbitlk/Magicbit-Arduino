@@ -1348,7 +1348,7 @@ Connect the Temperature & Humidity sensor to the Magicbit via left upper connect
 11.1 Introduction
 ------------------
 
-Ultrasonic sensor used for measure the distance to objects in front of the sensor by using ultrasonic waves.The human body doesn't sensitive for this signal. Therefor we can't hear any sound when it is working.
+Ultrasonic sensor is used to measure the distance to objects in front of the sensor by using ultrasonic waves.The human body doesn't sensitive for this signal. Therefor we can't hear any sound when it is working.
 
 **Learning outcomes:**
 
@@ -1359,21 +1359,21 @@ Ultrasonic sensor used for measure the distance to objects in front of the senso
 ----------------
 
 •	Magicbit
-•	Ultrasonic Sensor
+•	Ultrasonic sensor
 
 11.3 Theory
 -----------
 
-Any kind of ultrasonic sensor works on same way.For measuring distance to object it uses ultrasonic waveform .The sensor have two parts.one is wave transmitter part and other one is receiving part. The transmitter part emits an ultrasonic wave and receives the reflected waveform back from the emitter. The time duraion between transmit and receive is used to measure the distance. If the time duration is low then object is near .If the duration is high th object is too far. distance and the time duration is directly proptional parameters. the distance between object and the sensor canbe determined by following equation.
+Any kind of ultrasonic sensor works on same way. For measuring distance to object it uses ultrasonic waveform. The sensor have two parts. One is wave transmitter part and other one is receiving part. The transmitter part emits an ultrasonic wave and receives the reflected waveform back from the emitter. The time duraion between transmit and receive is used to measure the distance. If the time duration is low then object is near. If the time duration is high the object is too far. Distance and the time duration is directly propotional parameters. Distance between object and the sensor can be determined by following equation.
 
                   Distance=(speed of ultrasound wave in air )*(time duration)/2
 		  
-speed of ultrasound wave in air is 340 meters per second. To measure the distance triggers the trigger pin in certain time duration.if this tis duration is very small then it cant be measurable.if this too high it  can cases to nice.so it emites ultrasoic wave in small certain time duraion.then checks the reciever part(echo pin) until it detects.
+Speed of ultrasound wave in air is 340 meters per second. To measure the distance,we have to trigger the transmitter in certain time duration. If this time duration is very small, then it cant be measured. If this is too high it can cause to noices. Therefor it emites ultrasonic waves in small certain time duraions. Then checks the reciever part(echo pin) until it detects.
 
 11.4 Methodology
 -----------------
 
-Connect the ultrasonic sensor module to magicbit using four jumper wires.Then connect the Magicbit to your pc and upload the following code. Now open serial monitor .For good results keep the sensor vertcally and keep the object surface parrallel to the senosr sensor face.
+Connect the ultrasonic sensor module to magicbit using four jumper wires. Then connect the Magicbit to your pc and upload the following code. Now open serial monitor. For good results keep the sensor vertcally and keep the object surface parrallel to the senosr sensor face.
 
 11.5 Coding
 ------------
