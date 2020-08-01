@@ -1373,96 +1373,89 @@ Speed of ultrasound wave in air is 340 meters per second. To measure the distanc
 11.4 Methodology
 -----------------
 
-Connect the ultrasonic sensor module to magicbit using four jumper wires. Then connect the Magicbit to your pc and upload the following code. Now open serial monitor. For good results keep the sensor vertcally and keep the object surface parrallel to the senosr sensor face.
+Connect the ultrasonic sensor module to magicbit using connector wire.in here we connect sensor module to the upper left (D32) connector on the Magicbit. Then connect the Magicbit to your pc and upload the following code. Now open serial monitor. For good results keep the sensor vertcally and keep the object surface parrallel to the senosr sensor face.
 
 11.5 Coding
 ------------
 .. code-block:: c
 
-	// defines pins numbers
-	const int trigPin = 2;
-	const int echoPin = 5;
-	// defines variables
-	long duration;
-	int distance;
+
+	#include <NewPing.h>
+	#define TRIGGER_PIN  32  
+	#define ECHO_PIN     32  
+	#define MAX_DISTANCE 200 
 	
+	NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
+
 	void setup() {
-	pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
-	pinMode(echoPin, INPUT); // Sets the echoPin as an Input
-	Serial.begin(9600); // Starts the serial communication
+	Serial.begin(115200);
+	}
+
+	void loop() {
+  	delay(50);                    
+  	Serial.print("Ping: ");
+  	Serial.print(sonar.ping_cm()); 
+  	Serial.println("cm");
 	}
 	
-	void loop() {
-	digitalWrite(trigPin, LOW);
-	delayMicroseconds(2);
-	digitalWrite(trigPin, HIGH);
-	delayMicroseconds(10);
-	digitalWrite(trigPin, LOW);
-	duration = pulseIn(echoPin, HIGH);
-	distance= duration*0.034/2;
-	Serial.print("Distance: ");
-	Serial.println(distance);
-      	}
-	
-11. IR sensor
+11. IR LED 
 ====================================
 
 11.1 Introduction
 ------------------
 
-Ultrasonic sensor used for measure the distance to objects in front of the sensor by using ultrasonic waves.The human body doesn't sensitive for this signal. Therefor we can't hear any sound when it is working.
+IR or Infrared is commonly use communication technology in many cases. Becasue it is inexpensive and easy. Becuase of this technology is depend on light, this is widely used for short distance communication. The Ir LED module emits Infrared light in slightly higher freaquencies. So it use to transmit data and using IR receiver, we can take that data from another place.
 
 **Learning outcomes:**
 
-•	Using HC-SR04 ultarsonic sensor and getting outputs of distances
-•	Apply Ultrasonic sensor in projects
+•	Using IR LED and getting transmit data
+•	Apply IR LED in projects
 
 11.2 Components
 ----------------
 
 •	Magicbit
-•	Ultrasonic Sensor
+•	IR LED module
 
 11.3 Theory
 -----------
 
-Any kind of ultrasonic sensor works on same way.For measuring distance to object it uses ultrasonic waveform .The sensor have two parts.one is wave transmitter part and other one is receiving part. The transmitter part emits an ultrasonic wave and receives the reflected waveform back from the emitter. The time duraion between transmit and receive is used to measure the distance. If the time duration is low then object is near .If the duration is high th object is too far. distance and the time duration is directly proptional parameters. the distance between object and the sensor canbe determined by following equation.
-
-                  Distance=(speed of ultrasound wave in air )*(time duration)/2
-		  
-speed of ultrasound wave in air is 340 meters per second. To measure the distance triggers the trigger pin in certain time duration.if this tis duration is very small then it cant be measurable.if this too high it  can cases to nice.so it emites ultrasoic wave in small certain time duraion.then checks the reciever part(echo pin) until it detects.
+IR light have slightly high wave length than visible light. So it can't see for us. Also it have high frequency range. Therfor using IR light we can trnsmit data from high frequency waveform. This is called modulated signal transmites. The sun and every light source emmite IR light. IR light is always arround us with many higher frequencies. Therefor in the communication we used some rare natural IR freaquencies. In many cases 38KHz is used. In this frequency the IR LED on and OFF 38000 times in a second.the encoded modulated data(binary data) transmitted by changing on and off pattern. Then this wave is receiving and demodulate by using some IR sensor. After using some microcontroller we can decode and know what is the the transmitter side is sent.
 
 11.4 Methodology
 -----------------
 
-Connect the ultrasonic sensor module to magicbit using four jumper wires.
+Connect the IR LED module to magicbit. As usually we connect this module to upper right connector(D33) of the magicbit. Download and install IRremote library from here.Then connect the Magicbit to your pc and upload the following code.This code is used for transmit some data to some other device like TV,AC or etc, When Right push button is pressed. According to your purpose change the binary code to change data what you want to transmit.
 
 11.5 Coding
 ------------
 .. code-block:: c
+	#include<IRremote.h>  
 
-	// defines pins numbers
-	const int trigPin = 2;
-	const int echoPin = 5;
-	// defines variables
-	long duration;
-	int distance;
+	int PB_Right = 34;
+	#define IR_SEND_PIN 33;
+	boolean buttonState;
+	long irKeyCode= 16582903;
+	IRsend irsend;
 	
-	void setup() {
-	pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
-	pinMode(echoPin, INPUT); // Sets the echoPin as an Input
-	Serial.begin(9600); // Starts the serial communication
+	void setup()
+	{
+	pinMode(PB_Right, INPUT);
+	Serial.begin(9600);
 	}
+
+	void loop()
+	{
+  	buttonState=digitalRead(34);
+  	if(buttonState==LOW){
+        	irsend.sendSony(irKeyCode, 32);
+        	Serial.println("Sending");
+        	delay(40);  }
+	}
+
+
+
 	
-	void loop() {
-	digitalWrite(trigPin, LOW);
-	delayMicroseconds(2);
-	digitalWrite(trigPin, HIGH);
-	delayMicroseconds(10);
-	digitalWrite(trigPin, LOW);
-	duration = pulseIn(echoPin, HIGH);
-	distance= duration*0.034/2;
-	Serial.print("Distance: ");
-	Serial.println(distance);
-      	}
+	
+      	
 	
