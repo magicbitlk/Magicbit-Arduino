@@ -1247,7 +1247,7 @@ Then connect the Magicbit to your pc and upload the code below.
     int output_value ;
 
     void setup() {
-
+       pinMode(32,INPUT);
        Serial.begin(9600);
        Serial.println("Reading From the Sensor ...");
        delay(2000);
@@ -1422,35 +1422,37 @@ IR or Infrared is commonly use communication technology in many cases. Becasue i
 
 IR light have slightly high wave length than visible light. So it can't see for us. Also it have high frequency range. Therfor using IR light we can trnsmit data from high frequency waveform. This is called modulated signal transmites. The sun and every light source emmite IR light. IR light is always arround us with many higher frequencies. Therefor in the communication we used some rare natural IR freaquencies. In many cases 38KHz is used. In this frequency the IR LED on and OFF 38000 times in a second.the encoded modulated data(binary data) transmitted by changing on and off pattern. Then this wave is receiving and demodulate by using some IR sensor. After using some microcontroller we can decode and know what is the the transmitter side is sent.
 
+.. image:: https://cdn.sparkfun.com/r/600-600/assets/4/1/6/1/c/5159e980ce395f8840000000.jpg
+
 11.4 Methodology
 -----------------
 
-Connect the IR LED module to magicbit. As usually we connect this module to upper right connector(D33) of the magicbit. Download and install IRremote library from here.Then connect the Magicbit to your pc and upload the following code.This code is used for transmit some data to some other device like TV,AC or etc, When Right push button is pressed. According to your purpose change the binary code to change data what you want to transmit.
+Connect the IR LED module to magicbit. As usually we connect this module to upper right connector(D33) of the magicbit. Download and install IRremote library from here.Then connect the Magicbit to your pc and upload the following code.This code is used for transmit some data to some other device like TV,A/C or etc, When Right push button is pressed. According to your purpose change the binary code to change data what you want to transmit.
 
 11.5 Coding
 ------------
 .. code-block:: c
+
 	#include<IRremote.h>  
 
-	int PB_Right = 34;
+	#define PB_Right 34;
 	#define IR_SEND_PIN 33;
 	boolean buttonState;
 	long irKeyCode= 16582903;
 	IRsend irsend;
 	
-	void setup()
-	{
+	void setup(){
 	pinMode(PB_Right, INPUT);
 	Serial.begin(9600);
 	}
 
-	void loop()
-	{
+	void loop(){
   	buttonState=digitalRead(34);
   	if(buttonState==LOW){
         	irsend.sendSony(irKeyCode, 32);
         	Serial.println("Sending");
-        	delay(40);  }
+        	delay(40);  
+		}
 	}
 
 
