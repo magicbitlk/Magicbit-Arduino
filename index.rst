@@ -1342,13 +1342,75 @@ Connect the Temperature & Humidity sensor to the Magicbit via left upper connect
       Serial.println(F("°F"));
     }
 
-11. Ultarsonic Sensor
+11. Ultrasonic Sensor
 ====================================
 
 11.1 Introduction
 ------------------
 
-Ultarsonic sensor used for measure the distance to objects in front of the sensor by using ultrasonic waves.The human body doesnt sensitive for this signal. Therefor we cant hear any sound when it is working.
+Ultrasonic sensor used for measure the distance to objects in front of the sensor by using ultrasonic waves.The human body doesn't sensitive for this signal. Therefor we can't hear any sound when it is working.
+
+**Learning outcomes:**
+
+•	Using HC-SR04 ultarsonic sensor and getting outputs of distances
+•	Apply Ultrasonic sensor in projects
+
+11.2 Components
+----------------
+
+•	Magicbit
+•	Ultrasonic Sensor
+
+11.3 Theory
+-----------
+
+Any kind of ultrasonic sensor works on same way.For measuring distance to object it uses ultrasonic waveform .The sensor have two parts.one is wave transmitter part and other one is receiving part. The transmitter part emits an ultrasonic wave and receives the reflected waveform back from the emitter. The time duraion between transmit and receive is used to measure the distance. If the time duration is low then object is near .If the duration is high th object is too far. distance and the time duration is directly proptional parameters. the distance between object and the sensor canbe determined by following equation.
+
+                  Distance=(speed of ultrasound wave in air )*(time duration)/2
+		  
+speed of ultrasound wave in air is 340 meters per second. To measure the distance triggers the trigger pin in certain time duration.if this tis duration is very small then it cant be measurable.if this too high it  can cases to nice.so it emites ultrasoic wave in small certain time duraion.then checks the reciever part(echo pin) until it detects.
+
+11.4 Methodology
+-----------------
+
+Connect the ultrasonic sensor module to magicbit using four jumper wires.Then connect the Magicbit to your pc and upload the following code. Now open serial monitor .For good results keep the sensor vertcally and keep the object surface parrallel to the senosr sensor face.
+
+11.5 Coding
+------------
+.. code-block:: c
+
+	// defines pins numbers
+	const int trigPin = 2;
+	const int echoPin = 5;
+	// defines variables
+	long duration;
+	int distance;
+	
+	void setup() {
+	pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
+	pinMode(echoPin, INPUT); // Sets the echoPin as an Input
+	Serial.begin(9600); // Starts the serial communication
+	}
+	
+	void loop() {
+	digitalWrite(trigPin, LOW);
+	delayMicroseconds(2);
+	digitalWrite(trigPin, HIGH);
+	delayMicroseconds(10);
+	digitalWrite(trigPin, LOW);
+	duration = pulseIn(echoPin, HIGH);
+	distance= duration*0.034/2;
+	Serial.print("Distance: ");
+	Serial.println(distance);
+      	}
+	
+11. IR sensor
+====================================
+
+11.1 Introduction
+------------------
+
+Ultrasonic sensor used for measure the distance to objects in front of the sensor by using ultrasonic waves.The human body doesn't sensitive for this signal. Therefor we can't hear any sound when it is working.
 
 **Learning outcomes:**
 
