@@ -1375,7 +1375,7 @@ Speed of ultrasound wave in air is 340 meters per second. To measure the distanc
 
 Connect the ultrasonic sensor module to magicbit using connector wire.in here we connect sensor module to the upper left (D32) connector on the Magicbit. Then connect the Magicbit to your pc and upload the following code. Now open serial monitor. For good results keep the sensor vertcally and keep the object surface parrallel to the senosr sensor face.
 
-.. image:: https://electrosome.com/wp-content/uploads/2020/04/HC-SR04-Ultrasonic-Distance-Sensor-Working-1024x517.png
+.. image:: https://www.researchgate.net/profile/Rakan_Bashir/publication/335140788/figure/fig4/AS:801160889892865@1568023049877/Work-principle-of-the-ultrasonic-sensor.png
 
 11.5 Coding
 ------------
