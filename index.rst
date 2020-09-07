@@ -1459,7 +1459,7 @@ Connect the IR LED module to magicbit. As usually we connect this module to uppe
 13. Inbuilt motor controller
 ====================================
 
-11.1 Introduction
+13.1 Introduction
 ------------------
 	There are many projects we have to used motors for many purposes. every processor is work under 5V or 3.3V. So their outputs are not enough to supply largercurrent and volatges to control motors. In this case we use additional module to control the motors. that is motor driver. As the name it suggests, every motor driver is doing same thing. That is , controlling the motors using external power source based on microcontroller signals. These controlling signals are not constant voltage values.They are PWM(Pulse width modulation) signals. These signals are digital signals. Lot of motor drivers used H-Bridge mechanism to control the motors. If you used arduino board you have to use external motor driver to control motors. But in the magcbit you don't buy any external motor controller. Because it's already have inbuilt H-bridge motor driver. So you can directly connect motors to the magicbit and you can play with them.
 
@@ -1468,13 +1468,13 @@ Connect the IR LED module to magicbit. As usually we connect this module to uppe
 •	Using inbuilt motor driver to control motors
 •	Apply motor controlling process for projects
 
-11.2 Components
+13.2 Components
 ----------------
 
 •	Magicbit
 •	brushed DC motors(3V or 6V)
 
-11.3 Theory
+13.3 Theory
 -----------
 
 	First lets look at how this whole process is happening. We all know about that every motor needs power source to work. So if you bought 3v motor you have to supply 3V for proper working. The passing curret through the motor is depend on torque of the motor. If motor axel is working freely then it getting low amount of current. If motors are in difficult condition to rotate there axel then it is getting higher amount of current. To contorl the motors we used voltage sources. Voltage sources are sources which supply any amount of current under constant voltage. So the speed of the motors will depend on the voltages. If we supply high voltage then motor will work at higher RPM and vice versa. Therefor now you can understand that we can control the speed by control th supply voltage level. But this is old way and it's not efficency and accurate. Modernly we used PWM pulses. PWM means pulse width modulation. In this case we generate square wave which some constant freaquecy to control the motors. So the lower state of this wave is neary zero volt(0V) and higher state of the wave is nearly supply voltage. Therefor we can able to used our full supply voltage to control the motors. But how we control the motors speeds using this theorem. That is very easy. If we consider one cycle(duty cycle) of the wave that includes two parts. One is High stage part and other one is Low stage part. lets say High stage time duration is T1, Low stage Time duartion is T2 and one cycle time duartion is T. So we can simply write below eqaution .
@@ -1499,60 +1499,49 @@ so now you can see how switches are replaced by transistors.Q1,Q2,Q3 and Q4 repr
 
 In the Magicbit it includes L110 motor driver IC which have ability to control two motors. So it is two channel motor driver IC. It intrenally connected to the esp32 processor of the magicbit from four. M1A, M1B ,M2A and M2B are the pins of the lowerport of the Magicbit which are output pins of the L9110 IC.
 
-11.4 Methodology
+13.4 Methodology
 -----------------
 
 connect motor to the M1A and M1B or M2A and M2B pins or connect two motors to port of the left corner in lower side of the magicbit. Connect the Magicbit to your PC and upload the following code.
 
 
-11.5 Coding
+13.5 Coding
 ------------
 .. code-block:: c
-#include <ESP32Servo.h>
-int M1A=26;//motor drive input pins
-int M1B=2;
-int M2A=27;
-int M2B=4;
-void setup(){
-      pinMode(M1A,OUTPUT);//configure as inputs
-      pinMode(M1B,OUTPUT);
-      pinMode(M2A,OUTPUT);
-      pinMode(M2B,OUTPUT);
-}
-void loop(){
-   for(int i=0;i<=255;i++){//rotate both motors to direction
-analogWrite(M1A, i);
-analogWrite(M1B, 0);  
-analogWrite(M2A, i);
-analogWrite(M2B, 0);    
-delay(100);}  
- analogWrite(M1A, 255);//stop for 1 second
-analogWrite(M1B, 255);  
-analogWrite(M2A, 255);
-analogWrite(M2B, 255); 
-delay(1000);
-   for(int i=0;i<=255;i++){//rotate both motors to opposite direction
-analogWrite(M1A, 0);
-analogWrite(M1B, i);  
-analogWrite(M2A, 0);
-analogWrite(M2B, i);  
-delay(100);}   
- analogWrite(M1A, 255);//stop for 1 second
-analogWrite(M1B, 255);  
-analogWrite(M2A, 255);
-analogWrite(M2B, 255); 
-delay(1000);
-}
-
-
-
-
-
-	
-
-
-
-	
-	
-      	
-	
+	#include <ESP32Servo.h>
+	int M1A = 26; //motor drive input pins
+	int M1B = 2;
+	int M2A = 27;
+	int M2B = 4;
+	void setup() {
+	  pinMode(M1A, OUTPUT); //configure as inputs
+	  pinMode(M1B, OUTPUT);
+	  pinMode(M2A, OUTPUT);
+	  pinMode(M2B, OUTPUT);
+	}
+	void loop() {
+	  for (int i = 0; i <= 255; i++) { //rotate both motors to direction
+	    analogWrite(M1A, i);
+	    analogWrite(M1B, 0);
+	    analogWrite(M2A, i);
+	    analogWrite(M2B, 0);
+	    delay(100);
+	  }
+	  analogWrite(M1A, 255);//stop for 1 second
+	  analogWrite(M1B, 255);
+	  analogWrite(M2A, 255);
+	  analogWrite(M2B, 255);
+	  delay(1000);
+	  for (int i = 0; i <= 255; i++) { //rotate both motors to opposite direction
+	    analogWrite(M1A, 0);
+	    analogWrite(M1B, i);
+	    analogWrite(M2A, 0);
+	    analogWrite(M2B, i);
+	    delay(100);
+	  }
+	  analogWrite(M1A, 255);//stop for 1 second
+	  analogWrite(M1B, 255);
+	  analogWrite(M2A, 255);
+	  analogWrite(M2B, 255);
+	  delay(1000);
+	}
