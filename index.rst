@@ -1456,6 +1456,75 @@ Connect the IR LED module to magicbit. As usually we connect this module to uppe
         	delay(40);  
 		}
 	}
+13. Inbuilt motor controller
+====================================
+
+11.1 Introduction
+------------------
+	There are many projects we have to used motors for many purposes. every processor is work under 5V or 3.3V. So their outputs are not enough to supply larger current and volatges to motors. In this case we have to use additional module to controlthe motors. that is motor driver. As the name it suggests, every motor driver doing the same thing. that is , controlling the motors using external power source basedd on microcontroller signals. these controlloing signal not voltage vale.they are PWM(Pulse width modulation) signals. these are digital signals. lot of motor driver used H-Bridge mechanism  to control the motors. if you used arduino board you have to use external motor driver to contorl motors. but in the magcbi you dont buy any external motor controller.because it already have inbuilt H bridge motor driver. so you can directily connect motors to the magicbit and you can play with them.
+
+**Learning outcomes:**
+
+•	Using inbuilt motor driver to control motors
+•	Apply motor controlling process for projects
+
+11.2 Components
+----------------
+
+•	Magicbit
+•	any kind of motors(3V or 6V)
+
+11.3 Theory
+-----------
+
+first lets look at how this whole process is happening. we all know about every motor need power source to work. so if you bought 3v motor you have to supply 3V for proper working.The paasing curret to motor is depend of the torque of the motor.if motor axix ar working freely then it getting low amount of current. if motors are in difficult condition to rotate there axs then it getting higher amount of current. to contorl the motors we used voltage sources. voltage soureces are sourece which supply any amount of current under constant votage. so the speed of the motors will depend on on the voltages. if we supply high voltage then motor will work atahigher RPM and vice versa.therfor now ypu can understand  wethat we can cotorl the speeed by control th supply voltage level.but this is old way and this is not efficency and accurate. in this case moddernly we used PWM pulses. PWM means PUlse width modulation. In this case we supply ta square wave which sonme constant freaquecy. so the lower level of tis wave is neary zero volt(0V) and hight state of the wave is neraly supply voltage.so we used our full supply voltage ot control the motors. but how we control the motors speeds using this theorem . that is ver easy. if consider on cycle of the wave thta includes two parts. One is High state part and other one is Low state part. lets say High state time duration isT1 and Low state Time duartion is T2 dn one Cucly time duartion is T.
+so we can siply write this eqaution .T=T1+T2
+if T2=o the T==T1; in this case there dont have any lower state aprt in every cycle. so in this case motor ar working with full speed.because we always source voltage oto motor.but  if T1=o the T=T2. at this time there are no suplying volatge and cuerrent to the motor.in thisce the motor any fully turne off . so the speed will be zero. lets look at anothe condiotn.lets say T1=T2 then T1=T2=T/2
+so in this time the bot time time periods of hifgh low sate are eqaul of every one cycle.now the avrega of the wave is halfof the sorce power. so the supply volatge ois half of the supply volatge(we dont know the variation of the supply voltage and the motor speed. because it is depend on your motor.therfor we cant say the motor speed will be half pof the maximum speed under hal of supply vaoltage)in this way we can get ever volatge between0 and source volatge from average volateg by changing the ration between T1 and T2.
+to mrasue the pwm signal avaerage we use some factorvalue .tha is duty cycle value. this value is presentage value.
+Dutay cuyclcle=(T1/T)x100%
+no ypu have some genral undrstand abount motor control signals. thses are not limit to motor controlling.threse signal are use to many purposes. now lets loook at tha how we use this therom to motor controlling process.tocontrolling motor we used microcnontroller to gensaret PWM sisgnal. as in the itorduction describes, these volatge range and current are not sufficent sufficet to control the motors. so we used motor drive for that purpose.all we know that motors can rotates to tow oppesite direction with varioes speeds. so int his reasomn we get tow outputs fromt he microcontoller to control on motor. if we wnat rote motor in one direction then we used on otuput to generate pwm signal whine onther one is low state. it =fwant that motor rotets for opposite direction, in that case we use second oy=utoput pin to genarte signal while set low tate in in first pin.becasue  of the curent and voltage of this pins output, we will use motor conttroller unit.this unit include H bridge transisitor mechnism.lets look at how it works.
+befor move to that apartletasknow wahts a transistor. transistor is semicnondutor deviswhic iuse tio control tha signals.there are lot of transistor types,.but everone worlk in same principle. tarnsistor have three pins. one pin is used to supply the signal .the source current is goign thrount other pins.spo according to th input signla volatge the flowing current is changes.this basoc explanation of trasistior therom. but there arre lot fo mathematical and logical concepts behind the wotkign of transistor.
+ifinput signla is latrage than than some defined value then the assing current will be maximized and if onput signal is lower tha  som amount then the assing current will be neray nglectable. so these 2 stae are know as cut off and saturation reigons of the transistor. at this stages transistor works asa a switch. so if we connect microtrtroller output in to transistor input pin the then at the high digital signal tansiotor will on .and mo\low digital signal trnasiosrotr will off. no you have basic idea about transistor mechanism.
+so now letas look hbrdigne  mechanism.
+
+.. image:: https://www.build-electronic-circuits.com/wp-content/uploads/2018/11/H-bridge-switches.png
+
+as you can see there are for switches s1,s2,s3 and s4. these switches are actullaly transitsos.lets analysed this mechnism.if s1 and s4 are on and others are off then ,otor will work on one direction .and s2 ands3 on and other or=e off the it will works othe direction.so in the real case thses switches rare replaced by the 4 transistoor saa nd conmobind these 4 input to to inputs.in some cases the include 4 power amapllfies raher than transistior
+https://www.build-electronic-circuits.com/wp-content/uploads/2018/11/H-bridge.png
+in the magicbit it include L110 motor driver ic which have ability tow control two motors .so it is two channel motor driver ic. it intrenally connected to the esp32 proceesor of the magicbit from for pinse. so the M1AM1B a,M2A.and M2b are the pins of the lowerport which are outpitns of the L9110 ic. Then connect the Magicbit to your pc and upload the following code.
+
+
+11.4 Methodology
+-----------------
+
+connect motr to the M1a adn M1b or M2a andM2B pins of the leftconrenerin lower side port of the magicbit.if you ise M1a and M2 
+b the the relate two proceeseo output pins aare 16 and 17 .if you iuse othe tow ouins then thw processor output pins are 8 and 27.
+
+.. image:: https://www.researchgate.net/profile/Rakan_Bashir/publication/335140788/figure/fig4/AS:801160889892865@1568023049877/Work-principle-of-the-ultrasonic-sensor.png
+
+11.5 Coding
+------------
+.. code-block:: c
+
+
+	#include <NewPing.h>
+	#define TRIGGER_PIN  32  
+	#define ECHO_PIN     32  
+	#define MAX_DISTANCE 200 
+	
+	NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
+
+	void setup() {
+	Serial.begin(115200);
+	}
+
+	void loop() {
+  	delay(50);                    
+  	Serial.print("Ping: ");
+  	Serial.print(sonar.ping_cm()); 
+  	Serial.println("cm");
+	}
 
 
 
