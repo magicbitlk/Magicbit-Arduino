@@ -1456,6 +1456,7 @@ Connect the IR LED module to magicbit. As usually we connect this module to uppe
         	delay(40);  
 		}
 	}
+	
 13. Inbuilt motor controller
 ====================================
 
@@ -1477,14 +1478,15 @@ Connect the IR LED module to magicbit. As usually we connect this module to uppe
 13.3 Theory
 -----------
 
+
 	First lets look at how this whole process is happening. We all know about that every motor needs power source to work. So if you bought 3v motor you have to supply 3V for proper working. The passing curret through the motor is depend on torque of the motor. If motor axel is working freely then it getting low amount of current. If motors are in difficult condition to rotate there axel then it is getting higher amount of current. To contorl the motors we used voltage sources. Voltage sources are sources which supply any amount of current under constant voltage. So the speed of the motors will depend on the voltages. If we supply high voltage then motor will work at higher RPM and vice versa. Therefor now you can understand that we can control the speed by control th supply voltage level. But this is old way and it's not efficency and accurate. Modernly we used PWM pulses. PWM means pulse width modulation. In this case we generate square wave which some constant freaquecy to control the motors. So the lower state of this wave is neary zero volt(0V) and higher state of the wave is nearly supply voltage. Therefor we can able to used our full supply voltage to control the motors. But how we control the motors speeds using this theorem. That is very easy. If we consider one cycle(duty cycle) of the wave that includes two parts. One is High stage part and other one is Low stage part. lets say High stage time duration is T1, Low stage Time duartion is T2 and one cycle time duartion is T. So we can simply write below eqaution .
                                                                               T=T1+T2
 									      
 	If T2=0 and T=T1,then there dont have any lower state part in every cycle. In this case motor is working with full speed. Because we always source voltage to motor. But if T1=0 and T=T2, there are no supplying volatge and current to the motor. In this case motor is fully turnde off. So the speed will be zero. Lets look at another situation. Lets say T1=T2 ,then T1=T2=T/2. So at this time both time periods of high and low states are eqaul of every one cycle. Now the average value of the wave is half of the soruce power. Therfor the supply volatge is half of the supply volatge(we dont know the variation between the supply voltage and the motor speed. because it is depend on your motor.therefor we cant say the motor speed will be half of the maximum speed under half of supply voltage). In this way we can get every volatge between 0 and source volatge from average volateg by changing the ratio between T1 and T2.
 To measure the pwm signal average, we use some factor value called duty cycle value. This value is persentage value of the ratio of T1 and T.
-                                                                   Dutay cycle=(T1/T)x100%
-								   
-	Now you have some genral idea about motor control signals. These PWM signals are not limit to motor controlling applications. These signals are use to many purposes. Next look at that how we use this theorem to motor controlling process. To controlling motor we used microcnontroller to gensarate PWM signal. As in the introduction describes, these volatge range and current of the PWM signals are not sufficent to control the motors. So we used motor driver for that purpose. All we know that, motors can rotates to two oppasite directions with varies speeds. Because of that reason we get two outputs from the microcontoller to control motor. If we want to rotate the motor at one direction then we used one otuput to generate pwm signal while onther one is in low state. If we want that motor rotates for opposite direction, at that case we use second output pin to genarate PWM signal while set low state to first pin. Becasue of the lack of curent and voltage of this pins output, we will use motor conttroller unit. This unit include H-bridge swithching  mechanism. Lets look at how it works.
+                                                                   Duty cycle=(T1/T)x100%
+.. image:: https://circuitdigest.com/sites/default/files/projectimage_tut/Pulse-Width-Modulation.jpg								   
+In the microcontrollers we represent this duty cycle value from bit value. If we use 8 bits then we can get 0-255 range for represent duty cycle. in that case 255 means 100% duty cylce and 0 means 0% duaty cyle and so on.Now you have some genral idea about motor control signals. These PWM signals are not limit to motor controlling applications. These signals are use to many purposes. Next look at that how we use this theorem to motor controlling process. To controlling motor we used microcnontroller to gensarate PWM signal. As in the introduction describes, these volatge range and current of the PWM signals are not sufficent to control the motors. So we used motor driver for that purpose. All we know that, motors can rotates to two oppasite directions with varies speeds. Because of that reason we get two outputs from the microcontoller to control motor. If we want to rotate the motor at one direction then we used one otuput to generate pwm signal while onther one is in low state. If we want that motor rotates for opposite direction, at that case we use second output pin to genarate PWM signal while set low state to first pin. Becasue of the lack of curent and voltage of this pins output, we will use motor conttroller unit. This unit include H-bridge swithching  mechanism. Lets look at how it works.
 	before move to that part lets know what is a transistor. Transistor is semicondutor device which use to control tha signals. There are lot of transistor types. But every transistor work at same principle. Transistor have three pins. One pin is used to supply the signal. This signal is volateg or current signal. The source current is going through other pins. According to the input signal this flowing current is changing. If input signal is larger than than some defined value then the passing current will be maximized and if input signal is lower than some amount, then the passing current will be nearly neglectable. So these 2 sitations are known as cut off and saturation reigons of the transistor. At this stages transistor works as a a switch. So if we connect microtrtroller output in to transistor input signal , then at the high digital signal tansiotor will on and at the low digital signal trnasistor will off. Now you have basic idea about transistor mechanism.
 so now lets look H-brdige  mechanism.
 
@@ -1508,6 +1510,7 @@ connect motor to the M1A and M1B or M2A and M2B pins or connect two motors to po
 13.5 Coding
 ------------
 .. code-block:: c
+
 	#include <ESP32Servo.h>
 	int M1A = 26; //motor drive input pins
 	int M1B = 2;
@@ -1521,7 +1524,7 @@ connect motor to the M1A and M1B or M2A and M2B pins or connect two motors to po
 	}
 	void loop() {
 	  for (int i = 0; i <= 255; i++) { //rotate both motors to direction
-	    analogWrite(M1A, i);
+	    analogWrite(M1A, i);//pwm signal 
 	    analogWrite(M1B, 0);
 	    analogWrite(M2A, i);
 	    analogWrite(M2B, 0);
