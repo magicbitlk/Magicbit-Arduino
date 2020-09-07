@@ -1461,7 +1461,7 @@ Connect the IR LED module to magicbit. As usually we connect this module to uppe
 
 11.1 Introduction
 ------------------
-	There are many projects we have to used motors for many purposes. every processor is work under 5V or 3.3V. So their outputs are not enough to supply larger current and volatges to motors. In this case we have to use additional module to controlthe motors. that is motor driver. As the name it suggests, every motor driver doing the same thing. that is , controlling the motors using external power source basedd on microcontroller signals. these controlloing signal not voltage vale.they are PWM(Pulse width modulation) signals. these are digital signals. lot of motor driver used H-Bridge mechanism  to control the motors. if you used arduino board you have to use external motor driver to contorl motors. but in the magcbi you dont buy any external motor controller.because it already have inbuilt H bridge motor driver. so you can directily connect motors to the magicbit and you can play with them.
+	There are many projects we have to used motors for many purposes. every processor is work under 5V or 3.3V. So their outputs are not enough to supply largercurrent and volatges to control motors. In this case we use additional module to control the motors. that is motor driver. As the name it suggests, every motor driver is doing same thing. That is , controlling the motors using external power source based on microcontroller signals. These controlling signals are not constant voltage values.They are PWM(Pulse width modulation) signals. These signals are digital signals. Lot of motor drivers used H-Bridge mechanism to control the motors. If you used arduino board you have to use external motor driver to control motors. But in the magcbit you don't buy any external motor controller. Because it's already have inbuilt H-bridge motor driver. So you can directly connect motors to the magicbit and you can play with them.
 
 **Learning outcomes:**
 
@@ -1472,59 +1472,45 @@ Connect the IR LED module to magicbit. As usually we connect this module to uppe
 ----------------
 
 •	Magicbit
-•	any kind of motors(3V or 6V)
+•	brushed DC motors(3V or 6V)
 
 11.3 Theory
 -----------
 
-first lets look at how this whole process is happening. we all know about every motor need power source to work. so if you bought 3v motor you have to supply 3V for proper working.The paasing curret to motor is depend of the torque of the motor.if motor axix ar working freely then it getting low amount of current. if motors are in difficult condition to rotate there axs then it getting higher amount of current. to contorl the motors we used voltage sources. voltage soureces are sourece which supply any amount of current under constant votage. so the speed of the motors will depend on on the voltages. if we supply high voltage then motor will work atahigher RPM and vice versa.therfor now ypu can understand  wethat we can cotorl the speeed by control th supply voltage level.but this is old way and this is not efficency and accurate. in this case moddernly we used PWM pulses. PWM means PUlse width modulation. In this case we supply ta square wave which sonme constant freaquecy. so the lower level of tis wave is neary zero volt(0V) and hight state of the wave is neraly supply voltage.so we used our full supply voltage ot control the motors. but how we control the motors speeds using this theorem . that is ver easy. if consider on cycle of the wave thta includes two parts. One is High state part and other one is Low state part. lets say High state time duration isT1 and Low state Time duartion is T2 dn one Cucly time duartion is T.
-so we can siply write this eqaution .T=T1+T2
-if T2=o the T==T1; in this case there dont have any lower state aprt in every cycle. so in this case motor ar working with full speed.because we always source voltage oto motor.but  if T1=o the T=T2. at this time there are no suplying volatge and cuerrent to the motor.in thisce the motor any fully turne off . so the speed will be zero. lets look at anothe condiotn.lets say T1=T2 then T1=T2=T/2
-so in this time the bot time time periods of hifgh low sate are eqaul of every one cycle.now the avrega of the wave is halfof the sorce power. so the supply volatge ois half of the supply volatge(we dont know the variation of the supply voltage and the motor speed. because it is depend on your motor.therfor we cant say the motor speed will be half pof the maximum speed under hal of supply vaoltage)in this way we can get ever volatge between0 and source volatge from average volateg by changing the ration between T1 and T2.
-to mrasue the pwm signal avaerage we use some factorvalue .tha is duty cycle value. this value is presentage value.
-Dutay cuyclcle=(T1/T)x100%
-no ypu have some genral undrstand abount motor control signals. thses are not limit to motor controlling.threse signal are use to many purposes. now lets loook at tha how we use this therom to motor controlling process.tocontrolling motor we used microcnontroller to gensaret PWM sisgnal. as in the itorduction describes, these volatge range and current are not sufficent sufficet to control the motors. so we used motor drive for that purpose.all we know that motors can rotates to tow oppesite direction with varioes speeds. so int his reasomn we get tow outputs fromt he microcontoller to control on motor. if we wnat rote motor in one direction then we used on otuput to generate pwm signal whine onther one is low state. it =fwant that motor rotets for opposite direction, in that case we use second oy=utoput pin to genarte signal while set low tate in in first pin.becasue  of the curent and voltage of this pins output, we will use motor conttroller unit.this unit include H bridge transisitor mechnism.lets look at how it works.
-befor move to that apartletasknow wahts a transistor. transistor is semicnondutor deviswhic iuse tio control tha signals.there are lot of transistor types,.but everone worlk in same principle. tarnsistor have three pins. one pin is used to supply the signal .the source current is goign thrount other pins.spo according to th input signla volatge the flowing current is changes.this basoc explanation of trasistior therom. but there arre lot fo mathematical and logical concepts behind the wotkign of transistor.
-ifinput signla is latrage than than some defined value then the assing current will be maximized and if onput signal is lower tha  som amount then the assing current will be neray nglectable. so these 2 stae are know as cut off and saturation reigons of the transistor. at this stages transistor works asa a switch. so if we connect microtrtroller output in to transistor input pin the then at the high digital signal tansiotor will on .and mo\low digital signal trnasiosrotr will off. no you have basic idea about transistor mechanism.
-so now letas look hbrdigne  mechanism.
+	First lets look at how this whole process is happening. We all know about that every motor needs power source to work. So if you bought 3v motor you have to supply 3V for proper working. The passing curret through the motor is depend on torque of the motor. If motor axel is working freely then it getting low amount of current. If motors are in difficult condition to rotate there axel then it is getting higher amount of current. To contorl the motors we used voltage sources. Voltage sources are sources which supply any amount of current under constant voltage. So the speed of the motors will depend on the voltages. If we supply high voltage then motor will work at higher RPM and vice versa. Therefor now you can understand that we can control the speed by control th supply voltage level. But this is old way and it's not efficency and accurate. Modernly we used PWM pulses. PWM means pulse width modulation. In this case we generate square wave which some constant freaquecy to control the motors. So the lower state of this wave is neary zero volt(0V) and higher state of the wave is nearly supply voltage. Therefor we can able to used our full supply voltage to control the motors. But how we control the motors speeds using this theorem. That is very easy. If we consider one cycle(duty cycle) of the wave that includes two parts. One is High stage part and other one is Low stage part. lets say High stage time duration is T1, Low stage Time duartion is T2 and one cycle time duartion is T. So we can simply write below eqaution .
+                                                                              T=T1+T2
+									      
+	If T2=0 and T=T1,then there dont have any lower state part in every cycle. In this case motor is working with full speed. Because we always source voltage to motor. But if T1=0 and T=T2, there are no supplying volatge and current to the motor. In this case motor is fully turnde off. So the speed will be zero. Lets look at another situation. Lets say T1=T2 ,then T1=T2=T/2. So at this time both time periods of high and low states are eqaul of every one cycle. Now the average value of the wave is half of the soruce power. Therfor the supply volatge is half of the supply volatge(we dont know the variation between the supply voltage and the motor speed. because it is depend on your motor.therefor we cant say the motor speed will be half of the maximum speed under half of supply voltage). In this way we can get every volatge between 0 and source volatge from average volateg by changing the ratio between T1 and T2.
+To measure the pwm signal average, we use some factor value called duty cycle value. This value is persentage value of the ratio of T1 and T.
+                                                                   Dutay cycle=(T1/T)x100%
+								   
+	Now you have some genral idea about motor control signals. These PWM signals are not limit to motor controlling applications. These signals are use to many purposes. Next look at that how we use this theorem to motor controlling process. To controlling motor we used microcnontroller to gensarate PWM signal. As in the introduction describes, these volatge range and current of the PWM signals are not sufficent to control the motors. So we used motor driver for that purpose. All we know that, motors can rotates to two oppasite directions with varies speeds. Because of that reason we get two outputs from the microcontoller to control motor. If we want to rotate the motor at one direction then we used one otuput to generate pwm signal while onther one is in low state. If we want that motor rotates for opposite direction, at that case we use second output pin to genarate PWM signal while set low state to first pin. Becasue of the lack of curent and voltage of this pins output, we will use motor conttroller unit. This unit include H-bridge swithching  mechanism. Lets look at how it works.
+	before move to that part lets know what is a transistor. Transistor is semicondutor device which use to control tha signals. There are lot of transistor types. But every transistor work at same principle. Transistor have three pins. One pin is used to supply the signal. This signal is volateg or current signal. The source current is going through other pins. According to the input signal this flowing current is changing. If input signal is larger than than some defined value then the passing current will be maximized and if input signal is lower than some amount, then the passing current will be nearly neglectable. So these 2 sitations are known as cut off and saturation reigons of the transistor. At this stages transistor works as a a switch. So if we connect microtrtroller output in to transistor input signal , then at the high digital signal tansiotor will on and at the low digital signal trnasistor will off. Now you have basic idea about transistor mechanism.
+so now lets look H-brdige  mechanism.
 
 .. image:: https://www.build-electronic-circuits.com/wp-content/uploads/2018/11/H-bridge-switches.png
 
-as you can see there are for switches s1,s2,s3 and s4. these switches are actullaly transitsos.lets analysed this mechnism.if s1 and s4 are on and others are off then ,otor will work on one direction .and s2 ands3 on and other or=e off the it will works othe direction.so in the real case thses switches rare replaced by the 4 transistoor saa nd conmobind these 4 input to to inputs.in some cases the include 4 power amapllfies raher than transistior
-https://www.build-electronic-circuits.com/wp-content/uploads/2018/11/H-bridge.png
-in the magicbit it include L110 motor driver ic which have ability tow control two motors .so it is two channel motor driver ic. it intrenally connected to the esp32 proceesor of the magicbit from for pinse. so the M1AM1B a,M2A.and M2b are the pins of the lowerport which are outpitns of the L9110 ic. Then connect the Magicbit to your pc and upload the following code.
+As you can see there are for switches s1,s2,s3 and s4. These switches are actullaly transitors or some switching component. Lets analysed this diagrom. If s1 and s4 are on and others are off then ,motor will work on one direction .By changing the on and off time of the S1 and S4 with some constant frquency, we can rotate that motor with various speeds. If s3 and s2 are on and others are off then motor will works to other direction. Also we can change the motorspeed by chnging the on and off time of S2 and S3 switches.
+If all switche are off or all are on then the motor will stop.
 
+.. image:: https://www.build-electronic-circuits.com/wp-content/uploads/2018/11/H-bridge.png
+
+so now you can see how switches are replaced by transistors.Q1,Q2,Q3 and Q4 represents  S1,S2,S3 and S4 switches. In this diagrom base pin is input signal pin of the transitor.If we supply high state signal to that pin the transistor will goes saturate region and that transistor act as a closed switch(on). Otherwise it will act as a open(off) switch. In this diagram have for inputs to controlfor transistors. But we combine these four inputs to two inputs which satisfing above switching conditions.
+
+In the Magicbit it includes L110 motor driver IC which have ability to control two motors. So it is two channel motor driver IC. It intrenally connected to the esp32 processor of the magicbit from four. M1A, M1B ,M2A and M2B are the pins of the lowerport of the Magicbit which are output pins of the L9110 IC.
 
 11.4 Methodology
 -----------------
 
-connect motr to the M1a adn M1b or M2a andM2B pins of the leftconrenerin lower side port of the magicbit.if you ise M1a and M2 
-b the the relate two proceeseo output pins aare 16 and 17 .if you iuse othe tow ouins then thw processor output pins are 8 and 27.
+connect motor to the M1A and M1B or M2A and M2B pins of the left conrner in lower side port of the magicbit. If you use M1A and M1B then relate processor output pins are 16 and 17. If you use other twp pins then relate processor output pins are 8 and 27. Connect the Magicbit to your PC and upload the following code.
 
-.. image:: https://www.researchgate.net/profile/Rakan_Bashir/publication/335140788/figure/fig4/AS:801160889892865@1568023049877/Work-principle-of-the-ultrasonic-sensor.png
 
 11.5 Coding
 ------------
 .. code-block:: c
 
 
-	#include <NewPing.h>
-	#define TRIGGER_PIN  32  
-	#define ECHO_PIN     32  
-	#define MAX_DISTANCE 200 
 	
-	NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
-
-	void setup() {
-	Serial.begin(115200);
-	}
-
-	void loop() {
-  	delay(50);                    
-  	Serial.print("Ping: ");
-  	Serial.print(sonar.ping_cm()); 
-  	Serial.println("cm");
-	}
 
 
 
