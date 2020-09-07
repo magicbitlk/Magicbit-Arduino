@@ -153,15 +153,16 @@ The open-source Arduino Software (IDE) makes it easy to write code and upload it
 Lets get some general IDE about arduno IDE preview.
 Below picture shows the startup preview of the arduino IDE. In the that preview ath the middle you have your text editor.at the top left side there is a menu bar which have serveral options
 
-.. image:: https://www.theengineeringprojects.com/wp-content/uploads/2018/10/Introduction-to-Arduino-IDE-9.jpg
+.. image:: https://lh3.googleusercontent.com/proxy/aM_y6UYuZLGPe7rfvl_btOyqOxqYtTJf-x-Od6YndKpLsJGy3LcG_45j7EThYo22aGn9Ayu7mUrilq7WINJwqGTLD9IX7PSoupj1IbDzlvWV3wUzlQ
 
 
 Lets look at options in the arduino menu bar
--File- as its name suggets you can do the documentary things with this option. you can open new sketch,close, save that sketch ,open existing sketch or example sketch and change system prefeeferces .
--Edit- with this option you can change your font sizes ,indentations and some writing options
--sketch- this is important. compilation ,uploading and library options are available in this option.
-tools- hardware setup is done in this option. you can change the board type and programmer type and connect port name with this adn configure other hardware settings.
-help- this option is used for connect with arduino referenceces and getting help.
+
+- File- as its name suggets you can do the documentary things with this option. you can open new sketch,close, save that sketch ,open existing sketch or example sketch and change system prefeeferces .
+- Edit- with this option you can change your font sizes ,indentations and some writing options
+- sketch- this is important. compilation ,uploading and library options are available in this option.
+- tools- hardware setup is done in this option. you can change the board type and programmer type and connect port name with this adn configure other hardware settings.
+- help- this option is used for connect with arduino referenceces and getting help.
 
 Below the menu ar you have some shortcut keys(commond keys). First one is verify key button. By using this you can know your code is grammerly correct or not accocrding to programming language rules. Using upload button you can do both compile and uplaod process at same time. 
 The right  top corner have serial monitor icon. This is very important option. This use to communicaet  between adruino ide and your devlopment board . You can sent data to  and watch the data which sent by devlopment board from this . Under serial monitor icon we can see  some small icom option. This option is used to set the configureations of  the new tabs and existing tabs.
@@ -169,7 +170,8 @@ At the bottom side you can see the debugging console. this shows result of the c
 
 in the text editor sapce we can write any arduino programme. this is our plaground. we can write any relat code in that space. in that sapce their are two sections. one is void setp and other one is void loop. In the void setup we write which we want to execute at the start and one time. So we write pin configurations and other library configurations in the void setup. our main algorthm is write in void loop. As is name suggest the processor execute this loop section repeatedly at every time. So we write the things which we want execute at ever time in this section.
 After write the code go to tools->select your board type and select your port name correlty. then click upload button to upload the code.
-`Learn more about Arduino <https://www.arduino.cc/en/main/software>`_
+
+`Learn more about Arduino <https://www.arduino.cc/en/main/software>`
 
 Magicbit is based on ESP32 and Arduino core for the Magicbit forked from the `espressif/arduino-esp32  <https://github.com/espressif/arduino-esp32>`_
 
