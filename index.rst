@@ -1502,12 +1502,49 @@ In the Magicbit it includes L110 motor driver IC which have ability to control t
 11.4 Methodology
 -----------------
 
-connect motor to the M1A and M1B or M2A and M2B pins of the left conrner in lower side port of the magicbit. If you use M1A and M1B then relate processor output pins are 16 and 17. If you use other twp pins then relate processor output pins are 8 and 27. Connect the Magicbit to your PC and upload the following code.
+connect motor to the M1A and M1B or M2A and M2B pins or connect two motors to port of the left corner in lower side of the magicbit. Connect the Magicbit to your PC and upload the following code.
 
 
 11.5 Coding
 ------------
 .. code-block:: c
+#include <ESP32Servo.h>
+int M1A=26;//motor drive input pins
+int M1B=2;
+int M2A=27;
+int M2B=4;
+void setup(){
+      pinMode(M1A,OUTPUT);//configure as inputs
+      pinMode(M1B,OUTPUT);
+      pinMode(M2A,OUTPUT);
+      pinMode(M2B,OUTPUT);
+}
+void loop(){
+   for(int i=0;i<=255;i++){//rotate both motors to direction
+analogWrite(M1A, i);
+analogWrite(M1B, 0);  
+analogWrite(M2A, i);
+analogWrite(M2B, 0);    
+delay(100);}  
+ analogWrite(M1A, 255);//stop for 1 second
+analogWrite(M1B, 255);  
+analogWrite(M2A, 255);
+analogWrite(M2B, 255); 
+delay(1000);
+   for(int i=0;i<=255;i++){//rotate both motors to opposite direction
+analogWrite(M1A, 0);
+analogWrite(M1B, i);  
+analogWrite(M2A, 0);
+analogWrite(M2B, i);  
+delay(100);}   
+ analogWrite(M1A, 255);//stop for 1 second
+analogWrite(M1B, 255);  
+analogWrite(M2A, 255);
+analogWrite(M2B, 255); 
+delay(1000);
+}
+
+
 
 
 
