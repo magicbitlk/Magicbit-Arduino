@@ -180,7 +180,7 @@ Magicbit is based on ESP32 and Arduino core for the Magicbit forked from the `es
 Installation Instructions
 =========================
 
-- Relase Link -https://github.com/Magicbitlk/arduino-esp32/releases/download/V1.0.0/package_Magicbit_index.json
+- Relase Link -https://github.com/magicbitlk/arduino-esp32/releases/download/Magicbit/package_magicbit_index.json
 
 - Install the current upstream Arduino IDE at the 1.8 level or later. The current version is at the [Arduino website](http://www.arduino.cc/en/main/software).
 - Start Arduino and open Preferences window.
